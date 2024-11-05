@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="{% static 'style/HorngEn_style.css' %}">
+    <style>
+        /* Add red border to required fields */
+        .required-input {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="#">Beverage</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="checkout-container">
+        <div class="container">
+            <h1>Checkout</h1>
+            <p>{{user.username}}</p>
+                        <!-- Card Details Form -->
+                        <form class="card-details-form" method="post" action="{% url 'foodcateringapp:savepaymentdetails' %}">
+                            {% csrf_token %}
+                            <!-- {{form.as_p}} -->
+                            <!-- <h2>Card Details</h2>
+                            <label for="card-type">Card Type:</label>
+                            <select id="card-type" name="card-type">
+                                <option value="credit-card">Credit Card</option>
+                                <option value="debit-card">Debit Card</option>
+                            </select>
+                            <br>
+                            <label for="card-number">Card Number:</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="Enter card number">
+                            <br>
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="Enter CVV"> -->
+                            <button type="submit">Save payment details for next time</button>
+                        </form>
+            <div class="checkout-form">
+                <!-- Checkout Details Form (6/10) -->
+                <form class="details-form">
+                    <!-- Delivery Address -->
+                    <div class="delivery-address">
+                        <h2>Delivery Address</h2>
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" placeholder="Enter your delivery address"
+                            class="required-input"><br>
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" placeholder="Enter your city"
+                            class="required-input"><br>
+                        <label for="postal-code">Postal Code:</label>
+                        <input type="text" id="postal-code" name="postal-code" placeholder="Enter your postal code"
+                            class="required-input"><br>
+                    </div><br>
+
+                    <!-- Delivery Options -->
+                    <div class="delivery-options">
+                        <h2>Delivery Options</h2>
+                        <label for="standard-delivery">
+                            <input type="radio" id="standard-delivery" name="delivery-option" value="standard">
+                            Standard Delivery (+RM1.99)
+                        </label><br>
+                        <label for="express-delivery">
+                            <input type="radio" id="express-delivery" name="delivery-option" value="express">
+                            Express Delivery (+RM4.99)
+                        </label>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <h2>Payment Methods</h2>
+                        <label for="cash">
+                            <input type="radio" id="cash" name="payment-method" value="cash">
+                            Cash
+                        </label>
+
+                        <label for="cards">
+                            <input type="radio" id="cards" name="payment-method" value="cards">
+                            Cards
+                        </label>
+
+
+                        <label for="ewallet">
+                            <input type="radio" id="ewallet" name="payment-method" value="ewallet">
+                            E-Wallet
+                        </label>
+                        <!-- Container for the QR code -->
+                        <div class="qr-code-container">
+                            <img id="qr-code" src="{% static 'Image/QR_Code_example.png' %}" alt="QR Code">
+                        </div>
+                    </div>
+
+                    <!-- Shipping Information -->
+                    <div class="shipping-info">
+                        <h2>Shipping Information</h2>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" class="required-input">
+                        <span class="error-message" id="name-error"></span><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email"
+                            class="required-input">
+                        <span class="error-message" id="email-error"></span><br>
+
+                        <label for="ship-address">Shipping Address:</label>
+                        <input type="text" id="ship-address" name="ship-address"
+                            placeholder="Enter your shipping address" class="required-input">
+                        <span class="error-message" id="ship-address-error"></span><br>
+
+                        <label for="ship-city">Shipping City:</label>
+                        <input type="text" id="ship-city" name="ship-city" placeholder="Enter your shipping city"
+                            class="required-input">
+                        <span class="error-message" id="ship-city-error"></span><br>
+
+                        <label for="ship-postal-code">Shipping Postal Code:</label>
+                        <input type="text" id="ship-postal-code" name="ship-postal-code"
+                            placeholder="Enter your shipping postal code" class="required-input">
+                        <span class="error-message" id="ship-postal-code-error"></span><br>
+
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                            class="required-input">
+                        <span class="error-message" id="phone-error"></span><br>
+                    </div>
+
+
+                    <!-- Total price display -->
+                    <div class="total-price">
+                        <h2>Total Price :</h2>
+                        <p class="total-amount">RM60.00</p>
+                    </div><br>
+
+                    <!-- Checkout Button -->
+                    <div class="checkout-button-container">
+                        <button id="place-order" class="checkout-button">Place Order</button>
+                    </div>
+                </form>
+
+                <!-- Product Preview Form (4/10) -->
+                <form class="product-form">
+                    <div class="product-preview">
+                        <h2>Product Name</h2>
+                        <img src="{% static 'Image/drinks.jpg' %}" alt="Product Image">
+                        <p>Product description and details go here.</p>
+                        <p class="price">Price: RM19.99</p>
+                    </div><br>
+
+                    <div class="product-preview">
+                        <h2>Product Name</h2>
+                        <img src="{% static 'Image/drinks.jpg' %}" alt="Product Image">
+                        <p>Product description and details go here.</p>
+                        <p class="price">Price: RM19.99</p>
+                    </div><br>
+
+                    <div class="product-preview">
+                        <h2>Product Name</h2>
+                        <img src="{% static 'Image/drinks.jpg' %}" alt="Product Image">
+                        <p>Product description and details go here.</p>
+                        <p class="price">Price: RM19.99</p>
+                    </div><br>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="{% static 'scripts/HorngEn_scripts.js' %}"></script> -->
+</body>
+
+</html>

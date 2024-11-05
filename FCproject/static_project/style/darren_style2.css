@@ -1,0 +1,382 @@
+<<<<<<< HEAD:main/Scripts/cateringSystem/style/darren_style2.css
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.editbackground{
+    background: linear-gradient(rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(../Image/background2.jpeg);
+    width:100%;
+    height:100%;
+    background-size: cover;
+}
+
+.navbar{
+    padding:5px;
+    background: linear-gradient(rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+    width:100%;
+    height:90px;
+    position:sticky;
+    top:0;
+}
+
+.icon{
+    padding: 2%;
+    float:left;
+    color:white;
+}
+
+.menu{
+    padding:2.3% 1% 2.3% 1%;
+    float:right;
+    float:right;
+}
+
+.menu ul li{
+    display: inline;
+    padding:20px;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+    transition: 0.5s ease-in-out;
+    font-size: 20px;
+}
+
+a:hover{
+    color:orange;
+}
+
+img{
+
+    height:100px;
+    width:100px;
+}
+
+.container{
+    width: 100%;
+    height:100px;
+    transition:.4s;
+}
+
+.container h1{
+    color:white;
+    float: left;
+    padding:40px 0 0 60px;
+}
+
+.cart{
+    text-align: left;
+    float:right;
+    padding: 40px 60px 0 0;
+}
+
+.cart img{
+    height:40px;
+    width:40px;  
+}
+
+.cart span{
+    background-color: red;
+    border-radius: 50%;
+    padding: 3px 8px;
+    margin-left:-7px;
+   
+}
+
+.card{
+    position:fixed;
+    top:0;
+    left:100%;
+    width:400px;
+    height:100vh;
+    background-color: #453E3B;
+    transition:0.5s;
+}
+
+.card h1{
+    color:#E8BC0E;
+    font-weight:100;
+    margin:0;
+    padding: 0 20px;
+    height:80px;
+    display:flex;
+    align-items: center;;
+}
+
+.card .checkout{
+    position:absolute;
+    bottom: 0;
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.card .checkout div{
+    background:#E8BC0E;
+    width: 100%;
+    height:50px;
+    display:flex;
+    justify-content: center;
+    align-items: baseline;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.card .checkout div:nth-child(2){
+    background-color: #1C1F25;
+    color:#fff;
+}
+
+.active .card{
+    left:calc(100% - 400px);
+}
+
+.active .container{
+    transform: translate(-50px);
+}
+
+.list{
+    display: flex;
+}
+
+.list .item{
+    text-align:center;
+    background-color: #DCE0E1;
+    float: center;
+    margin:10px;
+    padding:20px;
+    box-shadow: 0 50px 50px #757676;
+    letter-spacing: 1px;
+}
+
+.list .item img{
+    width: 90%;
+}
+
+.list .item .title{
+    font-weight: 600;
+}
+
+.list .item .price{
+    margin:10px;
+}
+
+.list .item button{
+    background-color:#1C1F25;
+    color:#fff;
+    padding:10px;
+    width:100%;
+    border: none;
+    transition:.5s ease-in-out
+}
+
+.list .item button:hover{
+    background-color: #ff7200;;
+}
+
+.listcard li {
+    display:grid;
+    grid-template-columns: 100px repeat(3,1fr);
+    color: #fff;
+    row-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.listcard li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listcard li img{
+    width:100%;
+}
+
+.listcard button{
+    width:15%;
+    background-color: #fff5;
+    border: none;
+=======
+@import 'main.css';
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.editbackground {
+    background: linear-gradient(rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(../Image/background2.jpeg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: 0.5s ease-in-out;
+    font-size: 20px;
+}
+
+a:hover {
+    color: orange;
+}
+
+img {
+
+    height: 100px;
+    width: 100px;
+}
+
+.container {
+    width: 100%;
+    height: 100px;
+    transition: .4s;
+}
+
+.container h1 {
+    color: white;
+    float: left;
+    padding: 40px 0 0 60px;
+}
+
+.cart {
+    text-align: left;
+    float: right;
+    padding: 40px 60px 0 0;
+}
+
+.cart img {
+    height: 40px;
+    width: 40px;
+}
+
+.cart span {
+    background-color: red;
+    border-radius: 50%;
+    padding: 3px 8px;
+    margin-left: -7px;
+
+}
+
+.card {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 400px;
+    height: 100vh;
+    background-color: #453E3B;
+    transition: 0.5s;
+}
+
+.card h1 {
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    ;
+}
+
+.card .checkout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card .checkout div {
+    background: #E8BC0E;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card .checkout div:nth-child(2) {
+    background-color: #1C1F25;
+    color: #fff;
+}
+
+.active .card {
+    left: calc(100% - 400px);
+}
+
+.active .container {
+    transform: translate(-50px);
+}
+
+.list {
+    display: flex;
+}
+
+.list .item {
+    text-align: center;
+    background-color: #DCE0E1;
+    float: center;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 50px 50px #757676;
+    letter-spacing: 1px;
+}
+
+.list .item img {
+    width: 90%;
+}
+
+.list .item .title {
+    font-weight: 600;
+}
+
+.list .item .price {
+    margin: 10px;
+}
+
+.list .item button {
+    background-color: #1C1F25;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    transition: .5s ease-in-out
+}
+
+.list .item button:hover {
+    background-color: #ff7200;
+    ;
+}
+
+.listcard li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.listcard li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listcard li img {
+    width: 100%;
+}
+
+.listcard button {
+    width: 15%;
+    background-color: #fff5;
+    border: none;
+>>>>>>> MinKhant:FCproject/static_project/style/darren_style2.css
+}

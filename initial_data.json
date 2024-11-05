@@ -1,0 +1,182 @@
+[{"model": "auth.permission", "pk": 1, "fields": {"name": "Can add cart", "content_type": 1, "codename": "add_cart"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change cart", "content_type": 1, "codename": "change_cart"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete cart", "content_type": 1, "codename": "delete_cart"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can view cart", "content_type": 1, "codename": "view_cart"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can add catering set", "content_type": 2, "codename": "add_cateringset"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change catering set", "content_type": 2, "codename": "change_cateringset"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete catering set", "content_type": 2, "codename": "delete_cateringset"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view catering set", "content_type": 2, "codename": "view_cateringset"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can add event", "content_type": 3, "codename": "add_event"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can change event", "content_type": 3, "codename": "change_event"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete event", "content_type": 3, "codename": "delete_event"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view event", "content_type": 3, "codename": "view_event"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add food item", "content_type": 4, "codename": "add_fooditem"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change food item", "content_type": 4, "codename": "change_fooditem"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete food item", "content_type": 4, "codename": "delete_fooditem"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view food item", "content_type": 4, "codename": "view_fooditem"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add food menu", "content_type": 5, "codename": "add_foodmenu"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can change food menu", "content_type": 5, "codename": "change_foodmenu"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can delete food menu", "content_type": 5, "codename": "delete_foodmenu"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view food menu", "content_type": 5, "codename": "view_foodmenu"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add order", "content_type": 6, "codename": "add_order"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change order", "content_type": 6, "codename": "change_order"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can delete order", "content_type": 6, "codename": "delete_order"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can view order", "content_type": 6, "codename": "view_order"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add user profile", "content_type": 7, "codename": "add_userprofile"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change user profile", "content_type": 7, "codename": "change_userprofile"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete user profile", "content_type": 7, "codename": "delete_userprofile"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can view user profile", "content_type": 7, "codename": "view_userprofile"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can add transaction", "content_type": 8, "codename": "add_transaction"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change transaction", "content_type": 8, "codename": "change_transaction"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete transaction", "content_type": 8, "codename": "delete_transaction"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view transaction", "content_type": 8, "codename": "view_transaction"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can add shipping address", "content_type": 9, "codename": "add_shippingaddress"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change shipping address", "content_type": 9, "codename": "change_shippingaddress"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete shipping address", "content_type": 9, "codename": "delete_shippingaddress"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view shipping address", "content_type": 9, "codename": "view_shippingaddress"}}, {"model": "auth.permission", "pk": 37, "fields": {"name": "Can add order item", "content_type": 10, "codename": "add_orderitem"}}, {"model": "auth.permission", "pk": 38, "fields": {"name": "Can change order item", "content_type": 10, "codename": "change_orderitem"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete order item", "content_type": 10, "codename": "delete_orderitem"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can view order item", "content_type": 10, "codename": "view_orderitem"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can add catering set item", "content_type": 11, "codename": "add_cateringsetitem"}}, {"model": "auth.permission", "pk": 42, "fields": {"name": "Can change catering set item", "content_type": 11, "codename": "change_cateringsetitem"}}, {"model": "auth.permission", "pk": 43, "fields": {"name": "Can delete catering set item", "content_type": 11, "codename": "delete_cateringsetitem"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can view catering set item", "content_type": 11, "codename": "view_cateringsetitem"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can add cart item", "content_type": 12, "codename": "add_cartitem"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can change cart item", "content_type": 12, "codename": "change_cartitem"}}, {"model": "auth.permission", "pk": 47, "fields": {"name": "Can delete cart item", "content_type": 12, "codename": "delete_cartitem"}}, {"model": "auth.permission", "pk": 48, "fields": {"name": "Can view cart item", "content_type": 12, "codename": "view_cartitem"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add card", "content_type": 13, "codename": "add_card"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change card", "content_type": 13, "codename": "change_card"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete card", "content_type": 13, "codename": "delete_card"}}, {"model": "auth.permission", "pk": 52, "fields": {"name": "Can view card", "content_type": 13, "codename": "view_card"}}, {"model": "auth.permission", "pk": 53, "fields": {"name": "Can add booking", "content_type": 14, "codename": "add_booking"}}, {"model": "auth.permission", "pk": 54, "fields": {"name": "Can change booking", "content_type": 14, "codename": "change_booking"}}, {"model": "auth.permission", "pk": 55, "fields": {"name": "Can delete booking", "content_type": 14, "codename": "delete_booking"}}, {"model": "auth.permission", "pk": 56, "fields": {"name": "Can view booking", "content_type": 14, "codename": "view_booking"}}, {"model": "auth.permission", "pk": 57, "fields": {"name": "Can add user", "content_type": 15, "codename": "add_customuser"}}, {"model": "auth.permission", "pk": 58, "fields": {"name": "Can change user", "content_type": 15, "codename": "change_customuser"}}, {"model": "auth.permission", "pk": 59, "fields": {"name": "Can delete user", "content_type": 15, "codename": "delete_customuser"}}, {"model": "auth.permission", "pk": 60, "fields": {"name": "Can view user", "content_type": 15, "codename": "view_customuser"}}, {"model": "auth.permission", "pk": 61, "fields": {"name": "Can add log entry", "content_type": 16, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 62, "fields": {"name": "Can change log entry", "content_type": 16, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 63, "fields": {"name": "Can delete log entry", "content_type": 16, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 64, "fields": {"name": "Can view log entry", "content_type": 16, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 65, "fields": {"name": "Can add permission", "content_type": 17, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 66, "fields": {"name": "Can change permission", "content_type": 17, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 67, "fields": {"name": "Can delete permission", "content_type": 17, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 68, "fields": {"name": "Can view permission", "content_type": 17, "codename": "view_permission"}}, {"model": "auth.permission", "pk": 69, "fields": {"name": "Can add group", "content_type": 18, "codename": "add_group"}}, {"model": "auth.permission", "pk": 70, "fields": {"name": "Can change group", "content_type": 18, "codename": "change_group"}}, {"model": "auth.permission", "pk": 71, "fields": {"name": "Can delete group", "content_type": 18, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 72, "fields": {"name": "Can view group", "content_type": 18, "codename": "view_group"}}, {"model": "auth.permission", "pk": 73, "fields": {"name": "Can add content type", "content_type": 19, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 74, "fields": {"name": "Can change content type", "content_type": 19, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 75, "fields": {"name": "Can delete content type", "content_type": 19, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 76, "fields": {"name": "Can view content type", "content_type": 19, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 77, "fields": {"name": "Can add session", "content_type": 20, "codename": "add_session"}}, {"model": "auth.permission", "pk": 78, "fields": {"name": "Can change session", "content_type": 20, "codename": "change_session"}}, {"model": "auth.permission", "pk": 79, "fields": {"name": "Can delete session", "content_type": 20, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 80, "fields": {"name": "Can view session", "content_type": 20, "codename": "view_session"}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "foodcateringapp", "model": "cart"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "foodcateringapp", "model": "cateringset"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "foodcateringapp", "model": "event"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "foodcateringapp", "model": "fooditem"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "foodcateringapp", "model": "foodmenu"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "foodcateringapp", "model": "order"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "foodcateringapp", "model": "userprofile"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "foodcateringapp", "model": "transaction"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "foodcateringapp", "model": "shippingaddress"}}, {"model": "contenttypes.contenttype", "pk": 10, "fields": {"app_label": "foodcateringapp", "model": "orderitem"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "foodcateringapp", "model": "cateringsetitem"}}, {"model": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "foodcateringapp", "model": "cartitem"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app_label": "foodcateringapp", "model": "card"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "foodcateringapp", "model": "booking"}}, {"model": "contenttypes.contenttype", "pk": 15, "fields": {"app_label": "users", "model": "customuser"}}, {"model": "contenttypes.contenttype", "pk": 16, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 17, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 18, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 19, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 20, "fields": {"app_label": "sessions", "model": "session"}},
+{
+    "model": "foodcateringapp.foodmenu",
+    "pk": 1,
+    "fields": {
+      "name": "Breakfast Menu",
+      "description": "Delicious breakfast options",
+      "categories": "Breakfast Set",
+      "foodmenuImage": "Image/breakfast.jpg",
+      "featured": "Yes"
+    }
+  },
+  {
+    "model": "foodcateringapp.foodmenu",
+    "pk": 2,
+    "fields": {
+      "name": "Lunch Menu",
+      "description": "Variety of lunch choices",
+      "categories": "Lunch Set",
+      "foodmenuImage": "Image/lunch.png",
+      "featured": "Yes"
+    }
+  },
+  {
+    "model": "foodcateringapp.foodmenu",
+    "pk": 3,
+    "fields": {
+      "name": "Dinner Menu",
+      "description": "Delightful dinner options",
+      "categories": "Dinner Set",
+      "foodmenuImage": "Image/dinner.jpg",
+      "featured": "Yes"
+    }
+  },
+  {
+    "model": "foodcateringapp.fooditem",
+    "pk": 1,
+    "fields": {
+      "name": "Eggs Benedict",
+      "description": "Poached eggs with hollandaise sauce",
+      "price": 10.99,
+      "foodmenu": 1, 
+      "fooditemImage": "Image/egg_benedict.jpg"
+    }
+  },
+  {
+    "model": "foodcateringapp.fooditem",
+    "pk": 2,
+    "fields": {
+      "name": "Burger",
+      "description": "Monster burger",
+      "price": 20.99,
+      "foodmenu": 1, 
+      "fooditemImage": "Image/burgers.jpg"
+    }
+  },
+  {
+    "model": "foodcateringapp.fooditem",
+    "pk": 3,
+    "fields": {
+      "name": "Chicken Caesar Salad",
+      "description": "Grilled chicken with Caesar dressing",
+      "price": 12.99,
+      "foodmenu": 2, 
+      "fooditemImage": "Image/ceasar_salad.jpg"
+    }
+  },
+  {
+    "model": "foodcateringapp.fooditem",
+    "pk": 4,
+    "fields": {
+      "name": "Pizza",
+      "description": "Fully stuffed-crust Pizza",
+      "price": 30.99,
+      "foodmenu": 2, 
+      "fooditemImage": "Image/pizza.jpeg"
+    }
+  },
+  {
+    "model": "foodcateringapp.fooditem",
+    "pk": 5,
+    "fields": {
+      "name": "Grilled Salmon",
+      "description": "Freshly grilled salmon fillet",
+      "price": 15.99,
+      "foodmenu": 3,
+      "fooditemImage": "Image/grilled_salmon.jpg"
+    }
+  },
+  {
+    "model": "foodcateringapp.fooditem",
+    "pk": 6,
+    "fields": {
+      "name": "Coca Cola",
+      "description": "Just a regular-ol coca cola",
+      "price": 4.99,
+      "foodmenu": 3,
+      "fooditemImage": "Image/coca_cola.jpg"
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringset",
+    "pk": 1,
+    "fields": {
+      "name": "Wedding Set",
+      "image": "Image/wedding.jpg",
+      "description": "Perfect for Wedding events"
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringsetitem",
+    "pk": 1,
+    "fields": {
+      "catering_set": 1,
+      "food_item": 1,
+      "quantity": 50
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringsetitem",
+    "pk": 2,
+    "fields": {
+      "catering_set": 1,
+      "food_item": 2,
+      "quantity": 50
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringset",
+    "pk": 2,
+    "fields": {
+      "name": "Birthday Set",
+      "image": "Image/wedding.jpg",
+      "description": "Happy Birthday to you!"
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringsetitem",
+    "pk": 3,
+    "fields": {
+      "catering_set": 2,
+      "food_item": 3,
+      "quantity": 50
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringsetitem",
+    "pk": 4,
+    "fields": {
+      "catering_set": 2,
+      "food_item": 4,
+      "quantity": 50
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringset",
+    "pk": 3,
+    "fields": {
+      "name": "Funeral Set",
+      "image": "Image/wedding.jpg",
+      "description": "Rest in peace, loved ones"
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringsetitem",
+    "pk": 5,
+    "fields": {
+      "catering_set": 3,
+      "food_item": 5,
+      "quantity": 50
+    }
+  },
+  {
+    "model": "foodcateringapp.cateringsetitem",
+    "pk": 6,
+    "fields": {
+      "catering_set": 3,
+      "food_item": 6,
+      "quantity": 50
+    }
+  }
+]

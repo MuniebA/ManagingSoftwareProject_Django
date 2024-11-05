@@ -1,0 +1,56 @@
+@import 'main.css';
+
+h1 {
+    position: relative;
+    /* Ensure the h1 is positioned relative to its containing .header */
+    z-index: 1;
+    /* Place the h1 above the overlay */
+    margin-top: 20px;
+}
+
+.info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+
+
+.wrap {
+    font-family: Arial, sans-serif;
+    display: grid;
+    gap: 20px;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.grid-item {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 5fr 1fr;
+    align-items: center;
+    /* justify-content: center; */
+    text-align: center;
+    padding: 20px 0 20px 20px;
+    border: 1px solid #ccc;
+    background-color: gray;
+}
+
+.grid-item button {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+}
+
+.invisible p {
+    color: #ffdbcc;
+}
+.image {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+}

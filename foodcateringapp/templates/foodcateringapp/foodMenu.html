@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Description: Online Catering System (food menu page) -->
+<!-- Author: Thaddeus Chong -->
+<!-- Date: 03/10/2023 -->
+<!-- Validated: Ok -->
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thaddeus Chong" />
+    <meta name="description" content="Food Menu" />
+    <meta name="keywords" content="food, menu, drinks, list" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/Thad_style.css' %}" />
+</head>
+
+<body>
+    <!-- <div class="homepageBackground"> -->
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="content">
+            <h1>Food Menu</h1>
+            <br>
+            <br>
+            <p>Welcome to our Food Catering System's delectable menu page, where culinary delights await to
+                tantalize your
+                taste buds
+                and elevate your dining experience. At our catering service, we take pride in crafting a diverse and
+                mouthwatering menu
+                that caters to all your gastronomic desires.
+
+                At our catering service, we understand that every event is unique. That's why we offer customization
+                options
+                to tailor
+                our menu to your specific needs and dietary preferences. Whether you require gluten-free,
+                vegetarian, or
+                vegan options,
+                we're here to accommodate your requests.
+
+                Our commitment to quality, presentation, and exceptional service ensures that your event will be a
+                memorable
+                culinary
+                journey for you and your guests. Explore our menu, and let us bring the flavors of your dreams to
+                life.
+                Whether it's an
+                intimate gathering or a grand celebration, our food catering system is here to make every moment
+                deliciously
+                unforgettable.</p>
+        </div> -->
+
+    <!-- </div> -->
+    <article>
+        <br>
+        <br>
+        <br>
+        <h1>Food Menu</h1>
+        <br>
+        <br>
+        <br>
+        <h2 class="menuCategories">Normal Set</h2>
+        <div class="card_container">
+            {% for menu in menus %}
+            <a href="{% url 'foodcateringapp:food_menu_detail' menu.id %}" class="menulink">
+                <div class="card">
+                    <img src="{{ menu.foodmenuImage.url }}" alt="{{ menu.name }}" class="cardimg">
+                    <figcaption>
+                        <h4><b>{{ menu.name }}</b></h4>
+                    </figcaption>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+    </article>
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

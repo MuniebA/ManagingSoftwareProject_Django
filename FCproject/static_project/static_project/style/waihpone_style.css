@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #967e76;
+}
+
+body {
+    background: #967e76;
+    display: flex;
+    height: 100vh;
+}
+
+.form_wrapper {
+    margin: auto;
+    background: #eee3cb;
+    width: 50%;
+    height: 80%;
+    border-radius: 20px;
+    padding: 40px;
+    overflow: auto;
+}
+
+.form_wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.columnLeft {
+    float: left;
+    width: 25%;
+}
+
+.columnRight {
+    float: left;
+    width: 75%;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form label {
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.form input,
+select,
+textarea {
+    width: 100%;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    resize: vertical;
+    background: #d7c0ae;
+}
+
+.form textarea {
+    resize: none;
+    height: 150px;
+}
+
+.form div {
+    margin-bottom: 20px;
+}
+
+.form button {
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.form input::placeholder,
+textarea::placeholder {
+    padding: 10px;
+    color: #967e76;
+}
+
+#invisibleOption,
+#file {
+    display: none;
+}
+
+#preview {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#imageLabel {
+    font-size: 20px;
+    background: #d7c0ae;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+#imageLabel:hover,
+#submit:hover {
+    background: #967e76;
+    color: #eee3cb;
+}
+
+#buttons {
+    text-align: right;
+}
+
+#submit {
+    background: #d7c0ae;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
+#reset {
+    background: #967e76;
+    color: #eee3cb;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#reset:hover {
+    background: darkred;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .columnLeft,
+    .columnRight,
+    #buttons {
+        width: 100%;
+        margin-top: 0;
+    }
+}

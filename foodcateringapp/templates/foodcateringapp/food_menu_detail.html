@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Description: Online Catering System (food menu page) -->
+<!-- Author: Thaddeus Chong -->
+<!-- Date: 03/10/2023 -->
+<!-- Validated: Ok -->
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thaddeus Chong" />
+    <meta name="description" content="Food Menu" />
+    <meta name="keywords" content="food, menu, drinks, list" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/Thad_style.css' %}" />
+    <script src="https://kit.fontawesome.com/fed9556615.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="homepageBackgroun">
+        <div class="navbar" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+            <div class="icon">
+                <h2 class="logo">FoodEdge</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <article>
+        <br>
+        <br>
+        <br>
+        <h1>{{ menu.name }}</h1>
+        <div class="searchFunction">
+            <input type="search" placeholder="Search.." id="search">
+            <select id="priceFilter">
+                <option value="all">Filter</option>
+                <option value="under10">Below RM10</option>
+                <option value="10to20">RM10 - RM20</option>
+                <option value="above20">Above RM20</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2 class="menuCategories">Featured set<div class="cart">
+                <a href="{% url 'foodcateringapp:foodcart' %}"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </h2>
+
+        <div class="gridcon" id="content">
+
+            {% for item in items %}
+            <div class="maincon" data-price="{{ item.price }}">
+                <div class="itemCard">
+                    <img src="{{ item.fooditemImage.url }}" alt="item1" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2 class="item1-name">{{ item.name }}</h2>
+                    <p> {{ item.description }}</p>
+                    <p class="price"> RM{{ item.price }}0</p>
+                    <form method="post" action="{% url 'foodcateringapp:add-to-cart' item.id %}" class="form-item">
+                        <input type="hidden" name="menu_id" value="{{ item.foodmenu.id }}">
+                        {% csrf_token %}
+                        <button class="addtocart">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="card2">
+            <h1 style="text-align:center;color:white;">Card</h1>
+            <ul id="listcard"></ul>
+            <div class="checkout">
+                <div class="pay">Check Out</div>
+                <div class="close" onclick="closecard()">close</div>
+            </div>
+        </div>
+
+    </article>
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'scripts/thadscript.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Darren Lau Lit Zhang & Horng En Po">
+    <link rel="stylesheet" href="{% static 'style/homepage_style.css' %}">
+    <!-- for event slideshow -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="{% static 'style/event_style.css' %}">
+    <title>HomePage</title>
+</head>
+
+<body>
+
+    <div class="homepageBackground">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">FoodEdge</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+                    {% comment %} <li><a href="{% url 'users:logout' %}">Log Out</a></li> {% endcomment %}
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <h1 id="headerlighttheme">Providing a perfect universal dietary system that serves all mankind</h1>
+            <!-- <button class="button" id="buttonlighttheme"><a href="#">Learn about FoodEdge</a></button> -->
+        </div>
+    </div>
+    <hr>
+    <div class="productbackground">
+
+        <h3 id="titleproduct">Featured Food</h3>
+        <span id="spanproduct">Our catering service, Food Edge, provides a wide selection of delicious beverages and
+            delectable food options for a delightful dining experience.</span>
+
+        <div class="product">
+            <div><img src="{% static 'Image/item1.jpg' %}">
+                <h3>Set 1 - Energized Day</h3><span>Classic Eggs Benedict: Poached eggs on an English muffin with
+                    Canadian bacon and hollandaise sauce<br><br>RM 15.50</span>
+            </div>
+            <div><img src="{% static 'Image/item2.jpg' %}">
+                <h3>Set 2 - Luxury Set</h3><span>Breakfast Burrito: Scrambled eggs, black beans, cheese, and salsa
+                    wrapped in a warm tortilla<br><br>RM 19.90</span>
+            </div>
+            <div><img src="{% static 'Image/item3.jpg' %}">
+                <h3>Set 3 - French Style</h3><span>Breakfast Burrito: Scrambled eggs, black beans, cheese, and salsa
+                    wrapped in a warm tortilla<br><br>RM 23.00</span>
+            </div>
+            <div><img src="{% static 'Image/item4.jpg' %}">
+                <h3>Set 4 - Sweetness in life</h3><span>Belgian Waffles: Crispy waffles topped with fresh strawberries
+                    and whipped cream, mix of seasonal fruits drizzled with honey<br><br>RM 11.00</span>
+            </div>
+        </div>
+    </div>
+
+    {% if events %}
+    <div class="eventcard">
+        <h1>Upcoming Events</h1>
+        <div class="split-slideshow">
+            <div class="slideshow">
+                <div class="slider">
+                    {% for event in events %}
+                    <div class="item">
+                        <img src="{{ event.eventImage.url }}" alt="{{ event.eventname }}" />
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideshow-text-container" id="lighttheme">
+        <div class="slideshow-text" id="slideshow1">
+            {% for event in events %}
+            <div class="item">{{ event.eventname }}</div>
+            {% endfor %}
+        </div>
+        <div class="slideshow-text" id="slideshow2">
+            {% for event in events %}
+            <div class="item">{{ event.location }}</div>
+            {% endfor %}
+        </div>
+        <div class="slideshow-text" id="slideshow3">
+            {% for event in events %}
+            <div class="item">{{ event.datetime }}</div>
+            {% endfor %}
+        </div>
+        <div class="slideshow-text" id="slideshow4">
+            {% for event in events %}
+            <div class="item">{{ event.description }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="service-location-container">
+        <div class="flocation2">
+            <h3 id="titlelocation">Location FoodEdge</h3>
+            <!-- Embedded Google Map -->
+            <iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3996.6857440801357!2d110.35543181416306!3d1.5323108973838672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba70b11e02ce7%3A0x69cbf290cfd24bb7!2sSwinburne%20University%20of%20Technology%20Sarawak%20Campus!5e0!3m2!1sen!2suk!4v1542219838465"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- for event slideshow -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="{% static 'scripts/event_script.js'%}"></script>
+
+</body>
+
+</html>

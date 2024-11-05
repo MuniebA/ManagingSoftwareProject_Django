@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Page</title>
+    <link rel="stylesheet" href="{% static 'style/membership.css' %}">
+</head>
+
+<body>
+    <div class="navbar" id="notsticky">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                <li><a href="{% url 'foodcateringapp:booking' %}">Booking</a></li>
+                <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="header">
+        <h1>Membership</h1>
+    </header>
+
+    <main class="membership-container">
+        <section class="membership-details">
+            <h2 style="margin-bottom: 1%;">Your Membership Tier:</h2>
+            <strong><p class="membership-tier" style="font-size: 24px;margin-bottom: 1%;">{{ membership_tier }}</p></strong>
+            <p style="margin-bottom: 1%;">Membership Point: {{points}}</p>
+            <p class="membership-description">Enjoy exclusive benefits with your membership.</p>
+        </section>
+
+        <section class="membership-upgrade-info">
+            <h2>How to Upgrade Your Membership</h2>
+            <p style="margin-bottom: 1%;">To upgrade your membership tier, follow these simple steps:</p>
+            
+                <li>Purchase more to upgrade membership. RM 20 = 1 point.</li>
+            
+        </section>
+
+        <section class="membership-perks">
+            <h2 style="margin-bottom: 1%;">Membership Perks</h2>
+            
+            
+                <li>Free delivery on eligible orders</li>
+                <li>Special discounts and promotions</li>
+                <li>Premium customer support</li>
+                <!-- Add more perks as needed -->
+            
+        </section>
+        
+        <section class="membership-upgrade">
+            <h2>Membership Upgrade</h2>
+            <p>Your Current Points: <span id="current-points">{{ points }}</span></p>
+            <p style="margin-bottom: 1%;">Next Tier: {{next_tier_name}}</p>
+            <p style="margin-bottom: 1%;">Next Tier Points: {{next_tier_points}}</p>
+            <p style="margin-bottom: 1%;">Points Needed for Upgrade: {{points_until_next_tier}}</p>
+            <h4>Tier List Info</h4>
+            <li>Silver Membership: <span class="points-needed">500 points</span></li>
+                <li>Gold Membership: <span class="points-needed">1000 points</span></li>
+                <li>Diamond Membership: <span class="points-needed">2000 points</span></li>
+                <!-- Add more membership tiers as needed -->
+            <br>
+            {% comment %}    {% endcomment %}
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 Food Edge</p>
+    </footer>
+
+    <script>
+        function upgradeMembership() {
+            // Implement the logic for upgrading membership
+            // You can redirect users to a payment page or any other upgrade process
+            alert('Upgrade process initiated! Redirecting to upgrade page...');
+            // Add logic for redirection or other upgrade actions
+        }
+    </script>
+</body>
+
+</html>

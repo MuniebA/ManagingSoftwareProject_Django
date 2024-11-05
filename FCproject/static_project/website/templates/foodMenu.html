@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Description: Online Catering System (food menu page) -->
+<!-- Author: Thaddeus Chong -->
+<!-- Date: 03/10/2023 -->
+<!-- Validated: Ok -->
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thaddeus Chong" />
+    <meta name="description" content="Food Menu" />
+    <meta name="keywords" content="food, menu, drinks, list" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/Thad_style.css' %}" />
+</head>
+
+<body>
+    <div class="background">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Brew Legend</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Beverage</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="{% url 'foodmenu' %}">Menu</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <article>
+        <h1>Food Menu</h1>
+        <br>
+        <br>
+        <br>
+        <p> Welcome to our Food Catering System's delectable menu page, where culinary delights await to tantalize your
+            taste buds
+            and elevate your dining experience. At our catering service, we take pride in crafting a diverse and
+            mouthwatering menu
+            that caters to all your gastronomic desires.
+
+            At our catering service, we understand that every event is unique. That's why we offer customization options
+            to tailor
+            our menu to your specific needs and dietary preferences. Whether you require gluten-free, vegetarian, or
+            vegan options,
+            we're here to accommodate your requests.
+
+            Our commitment to quality, presentation, and exceptional service ensures that your event will be a memorable
+            culinary
+            journey for you and your guests. Explore our menu, and let us bring the flavors of your dreams to life.
+            Whether it's an
+            intimate gathering or a grand celebration, our food catering system is here to make every moment deliciously
+            unforgettable.</p>
+        <br>
+        <br>
+        <br>
+        <h2 class="menuCategories">Normal Set</h2>
+        <div class="card_container">
+            <a href="{% url 'breakfast' %}" class="menulink">
+                <div class="card">
+                    <img src="{% static 'Image/menu_breakfast.jpg' %}" alt="Menu1" class="cardimg">
+                    <figcaption>
+                        <h4><b>Breakfast Set</b></h4>
+                    </figcaption>
+                </div>
+            </a>
+            <div class="card">
+                <img src="{% static 'Image/menu_lunch.png' %}" alt="Menu2" class="cardimg">
+                <figcaption>
+                    <h4><b>Lunch Set</b></h4>
+                </figcaption>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'Image/menu_dinner.jpg' %}" alt="Menu3" class="cardimg">
+                <figcaption>
+                    <h4><b>Dinner Set</b></h4>
+                </figcaption>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h2 class="menuCategories"> Special Events</h2>
+        <div class="card_container">
+            <div class="card">
+                <img src="{% static 'Image/menu_wedding.jpg' %}" alt="Menu4" class="cardimg">
+                <figcaption>
+                    <h4><b>Wedding Set</b></h4>
+                </figcaption>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'Image/menu_birthday.jpg' %}" alt="Menu5" class="cardimg">
+                <figcaption>
+                    <h4><b>Birthday Set</b></h4>
+                </figcaption>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'Image/menu_Retirement.jfif' %}" alt="Menu6" class="cardimg">
+                <figcaption>
+                    <h4><b>Retirement Set</b></h4>
+                </figcaption>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>

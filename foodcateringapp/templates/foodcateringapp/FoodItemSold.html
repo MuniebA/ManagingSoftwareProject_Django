@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Online Food Catering System</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="DarrenLau" />
+    <meta name="description" content="Food Item Sold" />
+    <meta name="keywords" content="Sold" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/FoodItemSold.css' %}" />
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:orderdisplay' %}">Order Display</a></li>
+                <li><a href="{% url 'foodcateringapp:fooditemsold' %}">Food Item Sold</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="food-quantity-sold">
+        <h2>Food Item List with Quantity Sold (Non-Duplicate)<label for="sort" style="margin-left: 15%;">Sort by Quantity Sold:</label>
+            <select id="sort" style="color: white;height:8%">
+                <option value="asc" style="color:white">Ascending</option>
+                <option value="desc" style="color:white">Descending</option>
+            </select>
+            <button id="sort-button" style="color: white;">Sort</button></h2>
+
+        <!-- Dropdown for sorting -->
+        
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Quantity Sold</th>
+                    <th>Food Item Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in food_item_data %}
+                <tr>
+                    <td>{{ data.food_item }}</td>
+                    <td>{{ data.quantity_sold }}</td>
+                    <td>RM {{ data.total_price|floatformat:2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- JavaScript for sorting -->
+    <script>
+        $(document).ready(function () {
+            $("#sort-button").on("click", function () {
+                var sortOption = $("#sort").val();
+                var rows = $("tbody tr").get();
+
+                rows.sort(function (a, b) {
+                    var keyA = parseInt($(a).children("td:eq(1)").text());
+                    var keyB = parseInt($(b).children("td:eq(1)").text());
+
+                    if (sortOption === "asc") {
+                        return keyA - keyB;
+                    } else {
+                        return keyB - keyA;
+                    }
+                });
+
+                $.each(rows, function (index, row) {
+                    $("tbody").append(row);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+    <!-- <section id="food-quantity-sold">
+        <h2>Food Item List with Quantity Sold&#40;Duplicate&#41;</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Quantity Sold</th>
+                    <th>Food Item Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in order_items %}
+                    <tr>
+                        <td>{{ order.fooditem.name }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>RM {{ order.total_price|floatformat:2 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section> -->

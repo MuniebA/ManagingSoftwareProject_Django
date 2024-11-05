@@ -1,0 +1,68 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls static admin_modify %}
+
+{% block submit_buttons_bottom %}
+<style>
+    .form-row {
+        border-bottom: none;
+    }
+
+    .submit-row {
+        background: none;
+        border: none;
+    }
+
+    .submit-row input[type=submit] {
+        color: var(--primary-fg);
+        background-color: var(--secondary);
+        transition: background .2s ease-in-out;
+    }
+
+    .submit-row input[type=submit]:hover {
+        color: var(--secondary);
+        background-color: var(--primary-fg);
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=url],
+    input[type=number],
+    input[type=tel],
+    textarea,
+    select,
+    .vTextField {
+        background: var(--accent);
+        color: var(--primary-fg);
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=url]:focus,
+    input[type=number]:focus,
+    input[type=tel]:focus,
+    textarea:focus,
+    select:focus,
+    .vTextField:focus {
+        outline: 2px solid var(--secondary);
+    }
+
+    input[type=file]::file-selector-button {
+        margin-right: 20px;
+        border: none;
+        background: var(--accent);
+        padding: 7px 15px;
+        border-radius: 10px;
+        color: var(--primary-fg);
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+    }
+
+    input[type=file]::file-selector-button:hover {
+        background: var(--primary-fg);
+        color: var(--secondary);
+    }
+</style>
+{% submit_row %}
+{% endblock %}

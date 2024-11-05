@@ -1,0 +1,63 @@
+@import 'main.css';
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    font-size: 32px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.membership-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.membership-details,
+.membership-upgrade-info,
+.membership-perks,
+.membership-upgrade {
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.membership-details button,
+.upgrade-button {
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.membership-details button:hover {
+    background-color: #2980b9;
+}
+
+.membership-upgrade-info,
+.membership-perks {
+    color: #333;
+}
+
+.points-needed {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+
+.footer {
+    background-color: #34495e;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,192 @@
+@import 'main.css';
+
+
+.menu {
+    width: 30%;
+}
+
+.content {
+    width: 80%;
+    height: auto;
+    color: white;
+    padding-left: 200px;
+}
+
+.content h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #D7C0Ae;
+    font-size: 80px;
+    margin-top: 20%;
+}
+
+.content p {
+    margin: 0 auto;
+    float: left;
+}
+
+@media(max-width: 900px) {
+    .menu {
+        float: left;
+        width: 500px;
+    }
+}
+
+/* Header Styles */
+.header {
+    background-color: #D7C0Ae;
+    /* Dark blue background color */
+    color: #fff;
+    /* White text color */
+    padding: 20px;
+    /* Add some padding for spacing */
+    text-align: center;
+    /* Center-align the text */
+    box-shadow: 0 5px 15px 0 #091d24ad;
+}
+
+.header-title {
+    font-size: 28px;
+    /* Increase the font size for the title */
+}
+
+/* Section-title styling */
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    /* Dark blue text color */
+    margin-top: 35px;
+    text-align: center;
+    /* Center-align the text */
+    text-transform: uppercase;
+    /* Convert text to uppercase (optional) */
+}
+
+
+/* Styling for the order item list */
+.item-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style each list item (order item) */
+.item-list li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Style the quantity */
+.item-list li:nth-child(odd) {
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Add spacing between items */
+.item-list li+li {
+    margin-top: 4px;
+}
+
+/* Styling for the order list */
+.order-details {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px 0 #091d24ad;
+    position: relative;
+}
+
+.order-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Styling for the customer information */
+.order-customer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-details {
+    /* Existing styles for the order details */
+    position: relative;
+    /* Add relative positioning to the container */
+}
+
+/* Styling for the order status */
+.order-status {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+    /* Text color */
+    background-color: #334D66;
+    /* Background color */
+    padding: 4px 8px;
+    /* Add padding for a distinct appearance */
+    border-radius: 4px;
+    /* Add rounded corners */
+    position: absolute;
+    /* Add absolute positioning for precise placement */
+    top: 20px;
+    /* Position at the top of the container */
+    right: 30px;
+    /* Position at the right of the container */
+}
+
+.order-total {
+    color: #ff5722;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.order-details p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Add space between order containers */
+.order {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Styling for the buttons */
+.prepare-button,
+.deliver-button {
+    display: inline-block;
+    background-color: #334D66;
+    color: #fbf0df;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.prepare-button {
+    margin-right: 10px;
+}
+
+.deliver-button {
+    margin-right: 10px;
+}
+
+.prepare-button,
+.deliver-button:hover {
+    background-color: #1c2937;
+}

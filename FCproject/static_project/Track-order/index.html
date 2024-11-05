@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Track Order</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="FEGC WHITE.png" alt="Logo" /></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Edit Food Menu</a></li>
+                    <li><a href="">Add Food Menu</a></li>
+                    <li><a href="">Graph</a></li>
+                    <li><a href="">Charts</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </section>
+
+    <div class="container">
+        <h1>Track Your Orders</h1>
+        <p>Enter your order number to check the status:</p>
+        <input type="text" id="orderNumber" placeholder="Order Number">
+        <button onclick="trackOrder()">Track Order</button>
+        <p id="result"></p>
+    </div>
+    <div class="order-container">
+        <div class="order-bar">
+            <div class="stage">Order Placed</div>
+            <div class="stage">Order Received</div>
+            <div class="stage">In Process</div>
+            <div class="stage">Order Shipped</div>
+            <div class="stage">Order Delivered</div>
+        </div>
+        <p id="order-description">Description for the current stage.</p>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Preparation Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style/orderDisplay.css' %}">
+</head>
+
+<body>
+    <!-- <header class="header">
+        <h1 class="header-title">Order Preparation Dashboard</h1>
+    </header> -->
+
+    <div class="navbar" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:orderdisplay' %}">Order Display</a></li>
+                <li><a href="{% url 'foodcateringapp:fooditemsold' %}">Food Item Sold</a></li>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <section id="orders" class="orders-section">
+            <h2 class="section-title">Current Orders</h2>
+            <br>
+            {% for order_item in order %}
+            <div class="order" id="order{{ order_item.id }}">
+                <div class="order-details">
+                    <h3 class="order-header">Order {{ order_item.id }}</h3>
+                    <p class="order-status">{{ order_item.status }}</p>
+                    <p class="order-customer">Customer: {{ order_item.user.username }}</p>
+                    <div class="item-details">
+                        <ul class="item-list">
+                            {% for item in order_item.orderitem_set.all %}
+                            <li>{{ item.fooditem.name }}</li>
+                            <li>Quantity: {{ item.quantity }} </li>
+                            {% endfor %}
+                        </ul><br>
+                    </div>
+                    <p class="order-total">Total Price: RM{{ order_item.total_price | floatformat:2 }}</p>
+                    <div class="button-container">
+                        <button class="prepare-button"
+                            onclick="changeOrderStatus('{{ order_item.id }}', 'Out of kitchen')">Mark Prepared</button>
+                        <button class="deliver-button"
+                            onclick="changeOrderStatus('{{ order_item.id }}', 'Delivering')">Out for Delivery</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function changeOrderStatus(orderId, newStatus) {
+            console.log('Updating order:', orderId, 'to status:', newStatus);
+
+            // Perform an AJAX request to update the order status
+            $.ajax({
+                url: `/update_order_status/${orderId}/`,
+                type: 'POST',
+                data: {
+                    new_status: newStatus,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                },
+                success: function (data) {
+                    if (data.success) {
+                        console.log('Order status updated successfully');
+                        location.reload(); // Reload the page
+                    } else {
+                        console.error('Failed to update order status:', data.error);
+                        alert('Failed to update order status: ' + data.error);
+                    }
+                },
+                error: function () {
+                    console.error('An error occurred while updating order status.');
+                    alert('An error occurred while updating order status.');
+                },
+            });
+        }
+    </script>
+</body>
+
+</html>

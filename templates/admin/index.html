@@ -1,0 +1,118 @@
+{% extends "admin/index.html" %}
+{% load i18n static %}
+
+{% block content %}
+<style>
+    img {
+        width: 300px;
+        height: 300px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .admindashboard {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 5px;
+    }
+
+    .dashboarditem {
+        display: grid;
+        grid-template-columns: 300px auto;
+        border: 2px solid var(--primary-fg);
+        border-radius: 10px;
+    }
+
+    .dashboardcontent {
+        background-color: var(--accent);
+        padding: 20px 30px;
+        position: relative;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .dashboardcontent p {
+        font-size: 20px;
+    }
+
+    .dashboardcontent a {
+        position: absolute;
+        color: var(--secondary);
+        background: var(--primary-fg);
+        margin: 5px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        right: 30px;
+        bottom: 20px;
+    }
+
+    .dashboardcontent a:hover {
+        color: var(--primary-fg);
+        background-color: var(--secondary);
+    }
+
+    .dashboardcontent #addbutton {
+        right: 110px;
+    }
+</style>
+
+<div class="admindashboard">
+    <div class="dashboarditem">
+        <img src="{% static 'admin/img/fooditem.png' %}" alt="Food Item">
+        <div class="dashboardcontent">
+            <h1>Food Item</h1>
+            <p>Add or edit the food items for the clients</p>
+            <a id="addbutton" href="/admin/foodcateringapp/fooditem/add/">ADD</a>
+            <a href="/admin/foodcateringapp/fooditem/">EDIT</a>
+        </div>
+    </div>
+    <div class="dashboarditem">
+        <img src="{% static 'admin/img/foodmenu.jpeg' %}" alt="Food Item">
+        <div class="dashboardcontent">
+            <h1>Food Menu</h1>
+            <p>Add or edit the food menu for the clients</p>
+            <a id="addbutton" href="/admin/foodcateringapp/foodmenu/add/">ADD</a>
+            <a href="/admin/foodcateringapp/foodmenu/">EDIT</a>
+        </div>
+    </div>
+    <div class="dashboarditem">
+        <img src="{% static 'admin/img/cateringset.jpeg' %}" alt="Food Item">
+        <div class="dashboardcontent">
+            <h1>Catering Set</h1>
+            <p>Add or edit the catering set for the clients</p>
+            <a id="addbutton" href="/admin/foodcateringapp/cateringset/add/">ADD</a>
+            <a href="/admin/foodcateringapp/cateringset/">EDIT</a>
+        </div>
+    </div>
+    <div class="dashboarditem">
+        <img src="{% static 'admin/img/cateringsetitem.jpeg' %}" alt="Food Item">
+        <div class="dashboardcontent">
+            <h1>Catering Set Item</h1>
+            <p>Add or edit the catering set item for the clients</p>
+            <a id="addbutton" href="/admin/foodcateringapp/cateringsetitem/add/">ADD</a>
+            <a href="/admin/foodcateringapp/cateringsetitem/">EDIT</a>
+        </div>
+    </div>
+    <div class="dashboarditem">
+        <img src="{% static 'admin/img/transaction.jpeg' %}" alt="Food Item">
+        <div class="dashboardcontent">
+            <h1>Transactions</h1>
+            <p>View transactions made by the clients</p>
+            <a href="/admin/foodcateringapp/transaction/">VIEW</a>
+        </div>
+    </div>
+    <div class="dashboarditem">
+        <img src="{% static 'admin/img/chart.jpeg' %}" alt="Food Item">
+        <div class="dashboardcontent">
+            <h1>Chart</h1>
+            <p>View the analysis chart</p>
+            <a href="{% url 'foodcateringapp:viewchart' %}">VIEW</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block nav-sidebar %}
+{% include "admin/nav_sidebar.html" %}
+{% endblock %}

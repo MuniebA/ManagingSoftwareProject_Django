@@ -1,0 +1,10 @@
+myenv/
+__pycache__/
+*.sqlite3
+.DS_Store
+
+virtual/
+Darren/
+virtualtest/
+FCproject/__pycache__/__init__.cpython-311.pyc
+db.sqlite3

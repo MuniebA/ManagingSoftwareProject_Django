@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+ background-color: #f2e9e4;
+}
+
+
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #22223B;
+    box-shadow: 0 5px 15px 0 #22223B;
+    color: white;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    padding: 1% 1%;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+nav img {
+    width: 150px;
+}
+
+.nav-links {
+    flex: 1;
+    /* Remove 'flex: 1;' to prevent the links from taking all available space */
+    font-size: 30px;
+    text-align: right;
+    margin-left: auto; /* Push the .nav-links to the right */
+    /* Remove 'align-items: right;' as it's not a valid CSS property */
+}
+
+.nav-links ul {
+    text-align: right ;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #9A8C98;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+
+
+
+/* Apply general styles to the table */
+.menu-table {
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+/* Style for table headers */
+.table-header {
+    background-color: #9A8C98;
+    border: 2px solid #22223B;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style for the table */
+.table {
+    width: 100%; /* Adjust the width as needed */
+    border-collapse: collapse;
+}
+
+/* Style for the table cells */
+.table-cell {
+    width: 20%; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border: 2px solid #22223B; /* Add borders to the cells */
+    text-align: center;
+    vertical-align: middle;
+     padding: 10px;
+     box-sizing: border-box;
+}
+
+
+/* Reduce the size of the image */
+.table-cell img {
+    max-width: 100px; /* Adjust the width as needed */
+    max-height: 100px; /* Adjust the height as needed */
+}
+
+
+/* Style for the Edit button */
+.table-cell button {
+    background-color: #22223B;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the Edit button */
+.table-cell button:hover {
+    background-color: #9A8C98;
+}
+
+
+.container {
+    background-color: #f2e9e4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #22223B;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9A8C98;
+}
+
+
+
+
+
+@media (max-width: 640px) {
+    .login.wrapper {
+        grid-template-columns: 1fr;
+        height: 100vh;
+    }
+
+    info-side {
+        flex-direction: column-reverse;
+        padding: 48px 48px 48px 32px;
+    }
+}

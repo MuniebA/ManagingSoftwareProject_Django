@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Track Order</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/trackorder_style.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+    <article>
+        <div class="container" id="lighttheme">
+            <h1>Track Your Orders</h1>
+            <p>Enter your order number to check the status:</p>
+            <input type="text" id="orderNumber" placeholder="Order Number">
+            <button onclick="trackOrder()" id="buttondarktheme">Track Order</button>
+            <p id="result"></p>
+        </div>
+        <!-- <div class="order-container">
+        <div class="order-bar">
+            <div class="stage">In Process</div>
+            <div class="stage">Order Shipped</div>
+            <div class="stage">Order Delivered</div>
+        </div>
+    </div> -->
+        <br>
+        <br>
+        <br>
+        <h2 class="title"> Preparing Orders </h2>
+        <div class="order-container">
+
+            {% if orders %}
+            {% for order in orders %}
+            {% if order.status == 'Preparing' %}
+            <div class="order" data-order-id="order.id">
+                <h2>Order {{ order.id }}</h2>
+                <p><strong>Status: {{ order.status }}</strong></p>
+                <!-- Add a list of associated order items -->
+                <br>
+                <div class="order-con">
+                    <h4>Items:</h4>
+                    {% for item in order.orderitem_set.all %}
+                    <div class="orderitem">
+                        <!-- <img src="{{ item.fooditem.fooditemImage.url }}" alt="{{ item.fooditem.name }}"
+                        style="width:100px; height:auto;"> -->
+                        <p>{{ item.fooditem.name }} - Quantity: {{ item.quantity }}</p>
+                    </div>
+                    {% endfor %}
+                    <button id="buttondarktheme" style="position: absolute;bottom: 1%;right:1%"
+                        onclick="changeOrderStatus('{{ order.id }}', 'Success')"> Mark as Received
+                    </button>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <p style="text-align: center;">No orders available.</p>
+            {% endif %}
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2 class="title"> Delivering Orders </h2>
+        <div class="order-container">
+
+            {% if orders %}
+            {% for order in orders %}
+            {% if order.status == 'Delivering' %}
+            <div class="order" data-order-id="order.id">
+                <h2>Order {{ order.id }}</h2>
+                <p><strong>Status: {{ order.status }}</strong></p>
+                <!-- Add a list of associated order items -->
+                <br>
+                <div class="order-con">
+                    <h4>Items:</h4>
+                    {% for item in order.orderitem_set.all %}
+                    <div class="orderitem">
+                        <!-- <img src="{{ item.fooditem.fooditemImage.url }}" alt="{{ item.fooditem.name }}"
+                            style="width:100px; height:auto;"> -->
+                        <p>{{ item.fooditem.name }} - Quantity: {{ item.quantity }}</p>
+                    </div>
+                    {% endfor %}
+                    <button id="buttondarktheme" style="position: absolute;bottom: 1%;right:1%"
+                        onclick="changeOrderStatus('{{ order.id }}', 'Success')"> Mark as Received
+                    </button>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <p style="text-align: center;">No orders available.</p>
+            {% endif %}
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2 class="title"> Success Orders </h2>
+        <div class="order-container">
+            {% if orders %}
+            {% for order in orders %}
+            {% if order.status == 'Success' %}
+            <div class="order" data-order-id="order.id">
+                <h2>Order {{ order.id }}</h2>
+                <p><strong>Status: {{ order.status }}</strong></p>
+                <!-- Add a list of associated order items -->
+                <br>
+                <div class="order-con">
+                    <h4>Items:</h4>
+                    {% for item in order.orderitem_set.all %}
+                    <div class="orderitem">
+                        <!-- <img src="{{ item.fooditem.fooditemImage.url }}" alt="{{ item.fooditem.name }}"
+                            style="width:100px; height:auto;"> -->
+                        <p>{{ item.fooditem.name }} - Quantity: {{ item.quantity }}</p>
+                    </div>
+                    {% endfor %}
+                    <button id="buttondarktheme" style="position: absolute;bottom: 1%;right:1%"
+                        onclick="changeOrderStatus('{{ order.id }}', 'Success')"> Mark as Received
+                    </button>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <p style="text-align: center;">No orders available.</p>
+            {% endif %}
+        </div>
+        <br>
+        <br>
+        <br>
+    </article>
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Beverage</a></li>
+                    <li><a href="Aboutme.html" id="linkdarktheme">About&nbsp;us</a></li>
+                    <li><a href="Disclaimer.html" id="linkdarktheme">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function changeOrderStatus(orderId, newStatus) {
+            console.log('Updating order:', orderId, 'to status:', newStatus);
+
+            // Perform an AJAX request to update the order status
+            $.ajax({
+                url: `/update_order_status/${orderId}/`,
+                type: 'POST',
+                data: {
+                    new_status: newStatus,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                },
+                success: function (data) {
+                    if (data.success) {
+                        console.log('Order status updated successfully');
+                        location.reload(); // Reload the page
+                    } else {
+                        console.error('Failed to update order status:', data.error);
+                        alert('Failed to update order status: ' + data.error);
+                    }
+                },
+                error: function () {
+                    console.error('An error occurred while updating order status.');
+                    alert('An error occurred while updating order status.');
+                },
+            });
+        }
+    </script>
+
+    <script src="{% static 'scripts/trackorder_script.js' %}"></script>
+    <script>
+        const orders = JSON.parse('{{ orders_json|escapejs }}');
+    </script>
+</body>
+
+</html>

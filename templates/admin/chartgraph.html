@@ -1,0 +1,171 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+    body {
+        font-family: var(--primary-font);
+        color: var(--primary-fg);
+    }
+
+    .chart-container {
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 800px;
+        margin: 40px auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+        {
+        % comment %
+    }
+
+    .chart-container,
+    .plotly-graph-div,
+    #pie-chart {
+        /* Adjust the background color to be lighter to contrast with the dark text */
+        background-color: var(--body-transparent);
+    }
+
+        {
+        % endcomment %
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: var(--primary-fg);
+    }
+
+
+
+    form {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    #filter {
+        height: 38px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="date"] {
+        border: 1px solid var(--primary-fg);
+        border-radius: 5px;
+        padding: 10px;
+        color: var(--primary-fg);
+        background-color: var(--accent);
+    }
+
+    input[type="submit"] {
+        background-color: var(--primary-fg);
+        color: var(--accent);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: var(--secondary);
+        color: var(--primary-fg);
+    }
+
+    .plotly-graph-div,
+    #pie-chart {
+        background-color: var(--accent);
+        border-radius: 5px;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .line-chart-line {
+        stroke: var(--primary-fg);
+        /* Darker color for the line */
+    }
+
+    .marker {
+        fill: var(--primary-fg);
+        /* Brighter color for markers */
+    }
+
+    @media (max-width: 768px) {
+
+        .chart-container,
+        .plotly-graph-div,
+        #pie-chart {
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+        }
+    }
+
+    
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="chart-container">
+    <h1>Custom Chart Graph Page</h1>
+    <p>Visualize your data with precision and style.</p>
+    <form action="{% url 'foodcateringapp:viewchart' %}" method="get">
+        <select id="filter" name="filter" onchange="updateFormFields()">
+            <option value="all_time">All Time</option>
+            <option value="year">Year</option>
+            <option value="month">Month</option>
+        </select>
+        <div id="yearField" style="display:none;">
+            <input type="text" name="year" placeholder="YYYY" />
+        </div>
+        <div id="monthField" style="display:none;">
+            <input type="text" name="month" placeholder="MM" />
+        </div>
+        <input type="submit" value="Filter" />
+    </form>
+
+    <div class="plotly-graph-div">{{ graph|safe }}</div>
+</div>
+
+<div class="chart-container">
+    <h1>Transaction Data Pie Chart</h1>
+    <p>Select a date to view the transactions.</p>
+    <form action="{% url 'foodcateringapp:viewgraph' %}" method="get">
+        {% now "Y-m-d" as current_date %}
+        <input type="date" name="date" value="{{ request.GET.date|default:current_date }}">
+        <input type="submit" value="Show Chart">
+    </form>
+    <div id="pie-chart">{{ chart|safe }}</div>
+</div>
+
+<script>
+    window.onload = function () {
+        var filterSelect = document.getElementById('filter');
+        filterSelect.value = "{{ filter_type }}";
+        updateFormFields();
+    };
+
+    function updateFormFields() {
+        var filterValue = document.getElementById('filter').value;
+        document.getElementById('yearField').style.display = filterValue == 'month' || filterValue == 'year' ? 'block' : 'none';
+        document.getElementById('monthField').style.display = filterValue == 'month' ? 'block' : 'none';
+    }
+</script>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block nav_sidebar %}
+{% include "admin/nav_sidebar.html" %}
+{% endblock %}

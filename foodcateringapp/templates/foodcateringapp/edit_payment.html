@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Description: Online Catering System (food menu page) -->
+<!-- Author: Thaddeus Chong -->
+<!-- Date: 03/10/2023 -->
+<!-- Validated: Ok -->
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thaddeus Chong" />
+    <meta name="description" content="Food Menu" />
+    <meta name="keywords" content="food, menu, drinks, list" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/Thad_style.css' %}" />
+    <script src="https://kit.fontawesome.com/fed9556615.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- <div class="homepageBackground"> -->
+    <div class="navbar" id="notsticky">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <h1>Edit Card Information</h1>
+    <form class="new-edit-form" method="post" action="{% url 'foodcateringapp:edit_payment' card.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" id="buttonlighttheme">Save</button>
+        <br>
+    </form>
+    <br>
+    <br>
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

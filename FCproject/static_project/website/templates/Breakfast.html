@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Description: Online Catering System (food menu page) -->
+<!-- Author: Thaddeus Chong -->
+<!-- Date: 03/10/2023 -->
+<!-- Validated: Ok -->
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thaddeus Chong" />
+    <meta name="description" content="Food Menu" />
+    <meta name="keywords" content="food, menu, drinks, list" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/Thad_style.css' %}" />
+</head>
+
+<body>
+    <div class="background">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Brew Legend</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Beverage</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="{% url 'foodmenu' %}">Menu</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <article>
+        <br>
+        <br>
+        <br>
+        <h1>BreakFast Set</h1>
+        <div class="searchFunction">
+            <input type="search" placeholder="Search.." id="searchbar">
+            <select id="priceFilter">
+                <option value="all">Filter</option>
+                <option value="under10">Below RM10</option>
+                <option value="10to20">RM10 - RM20</option>
+                <option value="above20">Above RM20</option>
+                <option value="feature">Featured Set</option>
+                <option value="budget">Budget Set</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2 class="menuCategories">Featured set<div class="cart" onclick="opencard()"><img
+                    src="{% static 'Image/Cart.png' %}" alt="card" style="width:100%;" /><span class="quantity">0</span>
+            </div>
+        </h2>
+        {% for all in all_items %}
+        <div class="gridcon" id="content">
+            <div class="maincon" data-price="15.5" data-categories="featured">
+                <div class="itemCard">
+                    <img src="{% static 'Image/item1.jpg' %}" alt="item1" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2 class="item1-name">Set 1 - Energized Day</h2>
+                    <p> Classic Eggs Benedict: Poached eggs on an English muffin with Canadian bacon and hollandaise
+                        sauce</p>
+                    <p> Freshly Squeezed Orange Juice: A refreshing and vitamin-packed start to your day</p>
+                    <p class="price"> RM 15.50</p>
+                    <button class="addtocart" onclick="Addcart1()">Add to cart</button>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="maincon" data-price="19.9" data-categories="featured">
+                <div class="itemCard">
+                    <img src="{% static 'Image/item2.jpg' %}" alt="item2" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2>Set 2 - Luxury Set</h2>
+                    <p> Breakfast Burrito: Scrambled eggs, black beans, cheese, and salsa wrapped in a warm tortilla</p>
+                    <p> Fruit Smoothie: A blended mix of your favorite fruits, yogurt, and honey</p>
+                    <p class="price"> RM 19.90</p>
+                    <button class="addtocart" onclick="Addcart2()">Add to cart</button>
+                </div>
+            </div>
+
+            <div class="maincon" data-price="23.3" data-categories="featured">
+                <div class="itemCard">
+                    <img src="{% static 'Image/item3.jpg' %}" alt="item3" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2>Set 3 - French Style</h2>
+                    <p> French Toast: Thick slices of bread soaked in a vanilla-cinnamon egg batter, served with
+                        powdered sugar and syrup</p>
+                    <p> Chocolate Chip Muffins: Warm and soft muffins with a chocolatey surprise</p>
+                    <p class="price"> RM 23.00</p>
+                    <button class="addtocart"><a href="#">Add to cart</a></button>
+                </div>
+            </div>
+        </div>
+        <h2 class="menuCategories">Budget set</h2>
+        <div class="gridcon">
+            <div class="maincon" data-price="11.0" data-categories="budget">
+                <div class="itemCard">
+                    <img src="{% static 'Image/item4.jpg' %}" alt="item4" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2>Set 4 - Sweetness in life</h2>
+                    <p> Belgian Waffles: Crispy waffles topped with fresh strawberries and whipped cream</p>
+                    <p> Fruit Salad: A colorful mix of seasonal fruits drizzled with honey</p>
+                    <p class="price"> RM 11.00</p>
+                    <button class="addtocart"><a href="#">Add to cart</a></button>
+                </div>
+            </div>
+
+            <div class="maincon" data-price="9.0" data-categories="budget">
+                <div class="itemCard">
+                    <img src="{% static 'Image/item5.jpg' %}" alt="item5" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2>Set 5 - Healthy Start</h2>
+                    <p> Western Omelette: Three-egg omelette with ham, bell peppers, onions, and cheddar cheese</p>
+                    <p> Iced Tea: Classic black or herbal tea served cold with a slice of lemon</p>
+                    <p class="price"> RM 9.00</p>
+                    <button class="addtocart"><a href="#">Add to cart</a></button>
+                </div>
+            </div>
+
+            <div class="maincon" data-price="8.0" data-categories="budget">
+                <div class="itemCard">
+                    <img src="{% static 'Image/item6.jfif' %}" alt="item6" class="cardimg2" />
+                </div>
+                <div class="itemDescription">
+                    <h2>Set 6 - Easy Going</h2>
+                    <p> Nut Butter and Banana Sandwich: Peanut or almond butter with sliced banana on whole-grain bread
+                    </p>
+                    <p> Mini Fruit Tarts: A sweet and tangy dessert with a buttery crust</p>
+                    <p class="price"> RM 8.00</p>
+                    <button class="addtocart"><a href="#">Add to cart</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="card2">
+            <h1 style="text-align:center;color:white;">Card</h1>
+            <ul id="listcard"></ul>
+            <div class="checkout">
+                <div class="pay">Check Out</div>
+                <div class="close" onclick="closecard()">close</div>
+            </div>
+        </div>
+
+    </article>
+    <script src="{% static 'scripts/thadscript.js' %}"></script>
+</body>
+
+</html>

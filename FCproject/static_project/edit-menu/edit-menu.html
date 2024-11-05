@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit Food Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="FEGC WHITE.png" alt="Logo" /></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Edit Food Menu</a></li>
+                    <li><a href="">Add Food Menu</a></li>
+                    <li><a href="">Graph</a></li>
+                    <li><a href="">Charts</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    </section>
+
+
+    <div class="container">
+        <h1>Edit Product</h1>
+        <form id="addProductForm">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" required>
+    
+            <label for="category">Select Category:</label>
+            <select id="category" required>
+                <option value="vegetables">Vegetables</option>
+                <option value="fruits">Fruits</option>
+                <option value="dairy">Dairy</option>
+                <option value="meat">Meat</option>
+                <option value="grains">Grains</option>
+                <option value="beverages">Beverages</option>
+            </select>
+
+    
+            <label for="currency">Currency:</label>
+            <select id="currency" required>
+                <option value="USD">RM</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+            </select>
+    
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" required>
+    
+            <label for="price">Price:</label>
+            <input type="text" id="price" required>
+    
+            <label for="description">Description:</label>
+            <textarea id="description" rows="4"></textarea>
+    
+            <label for="productImage">Product Image:</label>
+            <input type="file" id="productImage" accept="image/*">
+    
+            <button type="submit">Add Changes</button>
+            <button type="Delete">DELETE</button>
+        </form>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

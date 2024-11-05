@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit Food Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/editmenustyle.css' %}">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="{% url 'foodcateringapp:editmenuindex' %}">
+                <img src="{% static 'Image/FEGC WHITE.png' %}" alt="Logo" />
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}">HOME</a></li>
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Edit Food Menu</a></li>
+                    <li><a href="">Add Food Menu</a></li>
+                    <li><a href="">Graph</a></li>
+                    <li><a href="">Charts</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <div class="container">
+        <h1>Edit Food Menu</h1>
+        <table class="menu-table">
+            <thead>
+                <tr>
+                    <th class="table-header">Id</th>
+                    <th class="table-header">Image</th>
+                    <th class="table-header">Title</th>
+                    <th class="table-header">Quantity</th>
+                    <th class="table-header">Status</th>
+                    <th class="table-header">Price</th>
+                    <th class="table-header">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for food_menu in food_menus %}
+                <tr>
+                    <td class="table-cell">{{ food_menu.id }}</td>
+                    <td class="table-cell">
+                        <img src="{{ food_menu.foodmenuImage.url }}" alt="{{ food_menu.name }}" />
+                    </td>
+                    <td class="table-cell">{{ food_menu.name }}</td>
+                    <td class="table-cell">{{ food_menu.quantity }}</td>
+                    <td class="table-cell">{{ food_menu.status }}</td>
+                    <td class="table-cell">${{ food_menu.price }}</td>
+                    <td class="table-cell">
+                        <a href="{% url 'foodcateringapp:editmenu' food_menu.id %}">
+                            <button>Edit</button>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td class="table-cell" colspan="7">No menu items available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

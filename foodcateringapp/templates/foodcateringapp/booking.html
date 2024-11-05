@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+</head>
+<body>
+    <h1>Your Booking Details</h1>
+  <ul>
+    {% for booking in bookings %}
+      <li>
+        <strong>Booking ID:</strong> {{ booking.id }}<br>
+        <strong>Catering Set:</strong> {{ booking.catering_set.name }}<br>
+        <strong>Date:</strong> {{ booking.date }}<br>
+        <strong>Time:</strong> {{ booking.time }}<br>
+        <strong>Additional Information:</strong> {{ booking.additional_info }}<br>
+      </li>
+    {% empty %}
+      <p>You have no bookings yet.</p>
+    {% endfor %}
+  </ul>
+</body>
+</html>

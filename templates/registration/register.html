@@ -1,0 +1,54 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'style/Min_style.css' %}">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <form action="{% url 'users:register' %}" class="form" method="post">
+            {% csrf_token %}
+            <h1>Sign Up</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Enter your username" name="username">
+                <i class='bx bx-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Enter your password" name="password1">
+                <i class='bx bx-lock-alt'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Confirm your password" name="password2">
+                <i class='bx bx-lock-alt'></i>
+            </div>
+            <!-- {{form.as_p}} -->
+
+            <div class="error-message">
+                {% if form.errors.username %}
+                {{ form.errors.username }}
+                {% endif %}
+                {% if form.errors.password1 %}
+                {{ form.errors.password1 }}
+                {% endif %}
+                {% if form.errors.password2 %}
+                {{ form.errors.password2 }}
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn" id="buttondarktheme">Sign Up</button>
+            <input type="hidden" name="next" value="{% url 'foodcateringapp:foodmenu' %}">
+            <div class="register-link">
+                <p>Already have an account?<a href="{% url 'users:login' %}">Log in</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

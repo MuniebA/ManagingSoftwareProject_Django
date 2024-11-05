@@ -1,0 +1,408 @@
+@import 'main.css';
+
+.content {
+    width: 80%;
+    height: auto;
+    color: white;
+    padding-left: 200px;
+}
+
+.content h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #D7C0Ae;
+    font-size: 80px;
+    margin-top: 20%;
+}
+
+.content p {
+    margin: 0 auto;
+    float: left;
+}
+
+@media(max-width: 900px) {
+    .menu {
+        float: left;
+        width: 500px;
+    }
+}
+
+/* Checkout page styling */
+/* Increase the maximum width of the form containers */
+.checkout-container {
+    max-width: 800px;
+    max-width: 1000px;
+    /* Increase the width as needed */
+    margin: 120px auto 20px auto;
+    /* Adjust top margin as needed */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    max-width: 800px;
+    max-width: 1000px;
+    /* Increase the width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container h1 {
+    margin: 30px 0 0 30px;
+}
+
+/* ... Other CSS rules ... */
+.checkout-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-form {
+    width: 40%;
+}
+
+.details-form {
+    width: 60%;
+    margin-right: 3%;
+    flex: 1;
+}
+
+/* Styling for the Delivery Options section */
+.delivery-options {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.delivery-options h2 {
+    font-size: 20px;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.delivery-options label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.delivery-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Style the radio button and label when selected */
+.delivery-options input[type="radio"]:checked+label {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* Styling for the Payment Methods section */
+.payment-methods {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.payment-methods h2 {
+    font-size: 20px;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.payment-methods label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.payment-methods input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Style the radio button and label when selected */
+.payment-methods input[type="radio"]:checked+label {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* Style for the card details form container */
+.card-details-form {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-right: 90px;
+}
+
+#card-details-form {
+    margin-top: 10px;
+}
+
+.card-details-form h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.card-details-form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.card-details-form select,
+.card-details-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.card-details-form select {
+    height: 40px;
+}
+
+.card-details-form input[type="text"] {
+    height: 40px;
+}
+
+.card-details-form input[type="text"]:focus,
+.card-details-form select:focus {
+    outline: none;
+    border: 1px solid #0077B6;
+}
+
+.card-details-form br {
+    display: none;
+    margin: 10px 0;
+}
+
+.card-details-form button {
+    background-color: #0077B6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card-details-form button:hover {
+    background-color: #005689;
+}
+
+/* Style the <select> element */
+#card-type {
+    width: 200px;
+    /* Set the width of the select box */
+    padding: 10px;
+    /* Add some padding for better visual appearance */
+    border: 1px solid #ccc;
+    /* Add a border */
+    border-radius: 5px;
+    /* Add rounded corners */
+    background-color: #f5f5f5;
+    /* Set the background color */
+    font-size: 16px;
+    /* Set the font size */
+    color: #333;
+    /* Set the text color */
+}
+
+/* Style the <option> elements */
+#card-type option {
+    font-size: 16px;
+    /* Set the font size for options */
+    padding: 5px 10px;
+    /* Add padding to the options */
+}
+
+/* Style the <option> elements when hovered (optional) */
+#card-type option:hover {
+    background-color: #ccc;
+    /* Change background color on hover */
+    color: #fff;
+    /* Change text color on hover */
+}
+
+/* Total price display */
+.total-price {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-price h2 {
+    font-size: 20px;
+    font-size: 25px;
+    margin: 0;
+}
+
+.total-amount {
+    width: 50%;
+    font-size: 20px;
+    color: #334D66;
+    font-weight: bold;
+    margin: 0;
+    margin-right: 60px;
+    margin-top: 7px;
+}
+
+/* Checkout button styling */
+.checkout-button {
+    display: inline-block;
+    background-color: #334D66;
+    color: #f5f5f5;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.checkout-button:hover {
+    background-color: #1c2937;
+}
+
+/* Styling for the Product Preview section */
+.product-preview {
+    border: 1px solid #ccc;
+    padding: 3px;
+    /* Smaller padding */
+    margin-bottom: 5px;
+    /* Smaller margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.product-preview h2 {
+    font-size: 20px;
+    font-size: 25px;
+    /* Smaller font size */
+    margin: 3px 0;
+    /* Smaller margin */
+}
+
+.product-preview img {
+    max-width: 80%;
+    height: 150px;
+    margin: 3px 0;
+    /* Smaller margin */
+}
+
+.product-preview p {
+    font-size: 18px;
+    /* Smaller font size */
+    margin: 3px 0;
+    /* Smaller margin */
+}
+
+.product-preview .price {
+    font-size: 18px;
+    /* Smaller font size */
+    /* color: #007BFF; */
+    margin: 3px 0;
+    /* Smaller margin */
+}
+
+/* Initially hide the QR code container */
+.qr-code-container {
+    text-align: center;
+    margin-top: 10px;
+    max-width: 200px;
+    /* Adjust the width as needed */
+    max-height: 200px;
+    /* Adjust the height as needed */
+}
+
+#qr-code {
+    margin: 10px auto;
+    /* Center the QR code horizontally and add some margin */
+    max-width: 100%;
+    /* Ensure the QR code doesn't exceed its container's width */
+    display: none;
+    /* Ensure it's displayed as a block element */
+}
+
+/* Show the QR code container when the "E-Wallet" option is selected */
+#ewallet:checked+.qr-code-container {
+    display: block;
+}
+
+/* Shipping Information Styles */
+.shipping-info {
+    /* border: 1px solid #ddd; */
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.shipping-info h2 {
+    font-size: 18px;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.shipping-info label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.shipping-info input[type="text"],
+.shipping-info input[type="email"],
+.shipping-info input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Error message styles */
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
+/* Highlight input fields with errors */
+.required-input.error {
+    border-color: red;
+}
+
+/* Add red border to required fields */
+.required-input {
+    border: 1px solid red;
+}
+
+.card-details-form {
+    display: none;
+}
+
+.input-requirements {
+    font-size: 14px;
+    /* Adjust the font size as needed */
+}

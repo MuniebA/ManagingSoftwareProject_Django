@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="{% static 'style/HorngEn_style.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="checkout-container">
+        <div class="container">
+            <h1>Checkout</h1>
+            <br>
+            <br>
+            <div class="checkout-form">
+                <!-- Checkout Details Form (6/10) -->
+                <form class="details-form" action="{% url 'foodcateringapp:placeorder' %}" method="post">
+                    {% csrf_token %}
+
+                    <!-- Shipping Information -->
+                    <div class="shipping-info">
+                        <h2>Shipping Information</h2>
+                        <label for="name">Name:</label>
+                        {{ form.name }}
+                        <span class="error-message" id="name-error"></span><br>
+                        <label for="email">Email:</label>
+                        {{ form.email }}
+                        <span class="error-message" id="email-error"></span><br>
+                        <label for="ship-address">Shipping Address:</label>
+                        {{ form.ship_address }}
+                        <span class="error-message" id="ship-address-error"></span><br>
+                        <label for="ship-city">Shipping City:</label>
+                        {{ form.ship_city }}
+                        <span class="error-message" id="ship-city-error"></span><br>
+                        <label for="ship-postal-code">Shipping Postal Code:</label>
+                        {{ form.ship_postal_code }}
+                        <span class="error-message" id="ship-postal-code-error"></span><br>
+                        <label for="phone">Phone:</label>
+                        {{ form.phone }}
+                        <span class="error-message" id="phone-error"></span><br>
+                        <div class="checkout-button-container">
+                            <button id="save-shipping-address" class="save-button" type="button">Save shipping address</button>
+                        </div>
+                    </div>
+                    <!-- Delivery Options -->
+                    <div class="delivery-options">
+                        <h2>Delivery Options</h2>
+                        {{ form.delivery_option}}
+                        <!-- <label for="standard-delivery">
+                            <input type="radio" id="standard-delivery" name="delivery-option" value="standard"
+                                onchange="updateTotalPrice()">
+                            Standard (RM2.99)
+                        </label>
+                        <label for="express-delivery">
+                            <input type="radio" id="express-delivery" name="delivery-option" value="express"
+                                onchange="updateTotalPrice()">
+                            Express (RM4.99)
+                        </label>
+                        <label for="saver-delivery">
+                            <input type="radio" id="saver-delivery" name="delivery-option" value="saver"
+                                onchange="updateTotalPrice()">
+                            Saver (RM0.99)
+                        </label> -->
+                    </div>
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <h2>Payment Methods</h2>
+                        {{ form.payment_method }}
+                        <!-- <label for="cash">
+                            <input type="radio" id="cash" name="payment-method" value="cash">
+                            Cash
+                        </label>
+                        <label for="cards">
+                            <input type="radio" id="cards" name="payment-method" value="cards">
+                            Cards
+                        </label>
+                        Card Details Form -->
+
+                        <div class="card-details-form" id="card-details-form">
+                            <h2>Card Details</h2>
+                            <label for="card-type">Card Type:</label>
+                            {{ form.card_type }}
+                            <br>
+                            <label for="card-number">Card Number:</label>
+                            {{ form.card_number }}
+                            <br>
+                            <label for="cvv">CVV:</label>
+                            {{ form.cvv }}
+                            <div class="checkout-button-container">
+                            <button id="save-card" class="save-button" type="button">Save card</button>
+                        </div>
+                        </div>
+
+                        <div class="qr-code-container">
+                            <img id="qr-code" src="{% static 'Image/QR_Code_example.png' %}" alt="QR Code">
+                        </div>
+                    </div>
+                    <input type="hidden" id="payment-method" name="payment-method" value="">
+
+                    <!-- Total price display -->
+                    <div class="total-price">
+                        <h2>Total Price:</h2>
+                        <p class="total-amount" data-total-price="{{ total_price|floatformat:2 }}">
+                            {{ total_price|floatformat:2 }}</p>
+                    </div><br>
+
+                    <!-- Checkout Button -->
+                    <div class="checkout-button-container">
+                        <button id="place-order" class="checkout-button" type="submit">Place Order</button>
+                    </div>
+                </form>
+                <!-- Product Preview Form (4/10) -->
+                <form class="product-form">
+                    {% csrf_token %}
+                    {% for cart_item in cart_items %}
+                    <div class="product-preview">
+                        <h2>{{ cart_item.food_item.name }}</h2>
+                        <img src="{{ cart_item.food_item.fooditemImage.url }}" alt="{{ cart_item.food_item.name }}">
+                        <p class="price">Price: RM {{ cart_item.food_item.price }}</p>
+                        <p> Quantity: {{ cart_item.quantity}}</p>
+                    </div><br>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('input[name="delivery_option"]').change(function () {
+            console.log('Delivery option changed.');
+
+            var selectedOption = $(this).val();
+            updateTotalPrice(selectedOption);
+        });
+
+        function updateTotalPrice() {
+            var selectedOption = $('input[name="delivery_option"]:checked').val();
+            console.log(selectedOption);
+            $.ajax({
+                url: '/get_updated_total_price/',
+                type: 'GET',
+                data: {
+                    'selected_option': selectedOption,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    // Update the total price displayed in the template
+                    var totalAmountElement = document.querySelector('.total-amount');
+                    totalAmountElement.textContent = data.updated_price.toFixed(2);
+                    totalAmountElement.setAttribute('data-total-price', data.updated_price.toFixed(2));
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            console.log('Document is ready.');
+
+            $('#id_payment_method').change(function () {
+                console.log('Payment method changed.');
+
+                var selectedPaymentMethod = $('input[name="payment_method"]:checked').val();
+                console.log(selectedPaymentMethod);
+                // Show or hide the card details form based on the selected payment method
+                if (selectedPaymentMethod === 'cards') {
+                    console.log('Show card details form.');
+                    document.getElementById('card-details-form').style.display = 'block';
+                    $('#qr-code').hide();
+                } else if (selectedPaymentMethod === 'ewallet') {
+                    document.getElementById('qr-code').style.display = 'block'
+                    $('#card-details-form').hide();
+                } else {
+                    console.log('Hide card details form.');
+                    $('#card-details-form').hide();
+                    $('#qr-code').hide();
+                }
+            });
+        });
+
+        const saveShippingAddressURL = "{% url 'foodcateringapp:saveshippingaddress' %}";
+        const saveCardURL = "{% url 'foodcateringapp:savepaymentdetails' %}";
+
+        document.getElementById('save-card').addEventListener('click', function() {
+        console.log("Card button save was clicked")
+        const card_number = document.getElementById('id_card_number').value;
+        const card_cvv = document.getElementById('id_cvv').value;
+
+        const formData = {
+            'number': card_number,
+            'cvv': card_cvv,
+        };
+
+        console.log("run right before fetch")
+        fetch(saveCardURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+                
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Handle success, e.g., display a success message
+                console.log('Shipping address saved successfully!');
+            } else {
+                // Handle error response
+                console.error('Error while saving shipping address');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    document.getElementById('save-shipping-address').addEventListener('click', function() {
+        console.log("Button was clicked")
+        const address = document.getElementById('id_ship_address').value;
+        const city = document.getElementById('id_ship_city').value;
+        const postal = document.getElementById('id_ship_postal_code').value;
+
+        const formData = {
+            'address': address,
+            'city': city,
+            'postal': postal
+        };
+
+        console.log("run right before fetch")
+        fetch(saveShippingAddressURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+                
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Handle success, e.g., display a success message
+                console.log('Shipping address saved successfully!');
+            } else {
+                // Handle error response
+                console.error('Error while saving shipping address');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+</body>
+
+</html>

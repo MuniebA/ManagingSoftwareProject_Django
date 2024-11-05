@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- Description: Online Catering System (food menu page) -->
+<!-- Author: Thaddeus Chong -->
+<!-- Date: 03/10/2023 -->
+<!-- Validated: Ok -->
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Thaddeus Chong" />
+    <meta name="description" content="Food Menu" />
+    <meta name="keywords" content="food, menu, drinks, list" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/Thad_style.css' %}" />
+    <script src="https://kit.fontawesome.com/fed9556615.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- <div class="homepageBackground"> -->
+    <div class="navbar" id="notsticky">
+        <div class="icon">
+            <h2 class="logo">FoodEdge</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <article>
+        <br>
+        <br>
+        <br>
+        <h1>Profile page</h1>
+        <br>
+        <br>
+        <div class="container">
+            <div class="profileimg">
+                <img src="{{ profile_image.url }}" alt="profileimg">
+                <br>
+                <p>Profile Picture</p>
+                <br>
+                <form class="card-details-form" method="post" action="{% url 'foodcateringapp:update_profile_image' %}"
+                    enctype="multipart/form-data" style="justify-content: center;gap: 10px;">
+                    {% csrf_token %}
+                    <button id="buttonlighttheme"><label for="id_profile_image">Choose File</label></button>
+
+                    <div class="file-input-container">
+                        <!-- Actual file input -->
+                        {{ form_profile_image }}
+
+                        <!-- Display validation errors, if any -->
+                        {{ form_profile_image.errors }}
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" id="buttonlighttheme">Upload Image</button>
+                </form>
+                <br>
+                <p>Username: {{user.username}}</p>
+                <p>Membership tier: {{ membership_tier }}</p>
+                <br>
+                <div class="card-details-form" style="height: auto;justify-content: center;gap: 10px">
+                    <button id="buttonlighttheme"><a href="{% url 'foodcateringapp:membership_page' %}">Go to membership
+                            page</a></button>
+                    <button id="buttonlighttheme"><a href="{% url 'foodcateringapp:change_password' %}">Change
+                            Password</a></button>
+                </div>
+            </div>
+
+            <div class="informationcard">
+                <br>
+                <br>
+                <div class="line" id="name-display">
+                    <div class="info-container">
+                        <p class="info">Name: {{ user.first_name }}</p>
+                    </div>
+                    <div class="button-container">
+                        <button id="buttonlighttheme" class="edit-button" onclick="editname()">Edit
+                            name <i class='fas fa-edit'></i></button>
+                    </div>
+                </div>
+                <div class="line" id="editform">
+                    <form class="card-details-form" method="post" action="{% url 'foodcateringapp:update_name' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" id="buttonlighttheme">Save</button>
+                    </form>
+                </div>
+                <div class="line">
+                    <div class="info-container">
+                        <p class="info">Email: {{ user.email }}</p>
+                    </div>
+                    <div class="button-container">
+                        <button id="buttonlighttheme" class="edit-button" onclick="editEmail()">Edit email <i
+                                class='fas fa-edit'></i></button>
+                    </div>
+                </div>
+                <div class="line" id="edit-email-form">
+                    <form class="card-details-form" method="post" action="{% url 'foodcateringapp:update_email' %}">
+                        {% csrf_token %}
+                        {{ form_email.as_p }}
+                        <button type="submit" id="buttonlighttheme">Save</button>
+                    </form>
+                </div>
+                <div class="line">
+                    <div class="info-container">
+                        <p class="info">Phone number: {{ phone_number }}</p>
+                    </div>
+                    <div class="button-container">
+                        <button id="buttonlighttheme" class="edit-button" onclick="editPhone()">Edit phone <i
+                                class='fas fa-edit'></i></button>
+                    </div>
+                </div>
+                <div class="line" id="edit-phone-form">
+                    <form class="card-details-form" method="post" action="{% url 'foodcateringapp:update_phone' %}">
+                        {% csrf_token %}
+                        {{ form_phone.as_p }}
+                        <button type="submit" id="buttonlighttheme">Save</button>
+                    </form>
+                </div>
+                <br>
+                <br>
+                <br>
+                <h2 style="margin-left: 30px">Saved shipping address</h2>
+                <br>
+                <div class="gridcon">
+                    {% if shipping_addresses %}
+                    {% for address in shipping_addresses %}
+                    <div id="darktheme" class="cardcon">
+                        <p>Saved shipping address {{ address.id }}</p>
+                        <p>Name: {{ address.name }}</p>
+                        <p>{{ address.address_line1 }}</p>
+                        <p>{{ address.address_line2 }}</p>
+                        <button id="buttonlighttheme"><a
+                                href="{% url 'foodcateringapp:edit_shipping_address' address.id %}">Edit <i
+                                    class='fas fa-edit'></i></a></button>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <h2 style="margin-left: 30px">No Saved address</h2>
+                    {% endif %}
+                </div>
+
+                <br>
+                <h2 style="margin-left: 30px"> Saved payment method </h2>
+                <br>
+                <div class="gridcon">
+                    {%if payment_method %}
+                    {% for card in payment_method %}
+                    <div id="darktheme" class="cardcon">
+                        <p> Saved payment method {{card.id}} </p>
+                        <p> Card Number : {{card.card_number}}</p>
+                        <button id="buttonlighttheme"><a href="{% url 'foodcateringapp:edit_payment' card.id %}">Edit
+                                <i class='fas fa-edit'></i></a></button>
+                    </div>
+                    {%endfor%}
+                    {% else %}
+                    <h2 style="margin-left: 30px"> No Saved address</h2>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+    </article>
+    <footer>
+        <div class="footer1">
+            <div class="FoodEdge">
+                <h3>Food Edge</h3>
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+                </ul>
+            </div>
+            <div class="flocation">
+                <h3>Location</h3>
+                <ul>
+                    <li>Jalan Simpang Tiga,</li>
+                    <li>93350 Kuching, Sarawak</li>
+                </ul>
+            </div>
+            <div class="fcontact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: 012-345 6789</li>
+                    <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    function editname() {
+        document.getElementById('editform').style.display = "block";
+    }
+
+    function editEmail() {
+        document.getElementById('edit-email-form').style.display = "block";
+    }
+
+    function editPhone() {
+        document.getElementById('edit-phone-form').style.display = "block";
+    }
+</script>
+
+</html>

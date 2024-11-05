@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Darren Lau Lit Zhang">
+    <link rel="stylesheet" href="{% static 'style/darren_style2.css' %}">
+
+    <title>Edit Cart Page</title>
+</head>
+<body>
+    <div class="editbackground">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Brew Legend</h2>
+            </div>
+            <div class = "menu">
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                    <li><a href="#">Beverage</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Location</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="FoodMenu">
+            <div style="display:flex;">
+                <div style="flex:1;color:white;font-family: Arial, Helvetica, sans-serif;font-size: 30px;padding:170px 0 70px 40px;"><h1>Food Menu</h1></div>
+                <div style="flex:1;color:white;font-family: Arial, Helvetica, sans-serif;font-size: 30px;padding:180px 0 70px 40px;"><p>Discover the delightful and exquisite flavors that <br>make our beverages so incredibly tasty.</p></div>
+            </div>
+
+            <hr>
+
+            <div class="container">
+                <h1>Food Cart</h1>
+                <div class="cart">
+                    <img src="{% static 'Image/Cart.png' %}">
+                    <span class="quantity">0</span>
+                </div>
+                
+            </div>
+
+            <div class = "list"></div>
+
+            <div class="card">
+                <h1>Card</h1>
+                <ul class="listcard"></ul>
+                <dic class = "checkout">
+                    <div class="total">0</div>
+                    <div class="closecart">close</div>
+                </dic>
+            </div>
+            <script src="{% static 'scripts/darren_script.js' %}"></script>
+            <div>
+            <!-- <ul class="firstrow">
+                
+                <li><div><img src="./Image/Coffee.jpeg" class="food1"><figcaption>Coffee</figcaption></div></li>
+                <li><div><img src="./Image/Tea.jpg" class="food1"><figcaption>Tea</figcaption></div></li>
+                <li><div><img src="./Image/hotChocolate.jpg" class="food1"><figcaption>HotChocolate</figcaption></div></li>
+                <li><div><img src="./Image/matcha.jpg" class="food1"><figcaption>Matcha</figcaption></div></li>
+            </ul>
+            <ul class="secondrow">
+                <li><div><img src="./Image/Croissants.jpg" class="food1"><figcaption>Croissant</figcaption></div></li>
+                <li><div><img src="./Image/AvocadoToast.jpg" class="food1"><figcaption>AvocadobToast</figcaption></div></li>
+                <li><div><img src="./Image/PancakeStack.jpg" class="food1"><figcaption>Pancake Stack</figcaption></div></li>
+                <li><div><img src="./Image/ClassicOmelette.jpg" class="food1"><figcaption>Classic Omelette</figcaption></div></li>
+            </ul> -->
+            </div>
+        </div>
+    </div>
+
+    
+        
+    
+</body>
+
+
+</html>

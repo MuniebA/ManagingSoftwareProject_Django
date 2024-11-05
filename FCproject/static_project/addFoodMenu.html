@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Description: Add Food Menu (Management) Page -->
+<!-- Author: Wai Hpone -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Catering System</title>
+    <link rel="stylesheet" href="waihpone_style.css">
+</head>
+
+<body>
+    <div class="form_wrapper">
+        <form action="" class="form" method="post">
+            <div class="row">
+                <h1>Add Food Menu</h1>
+            </div>
+            <div class="row">
+                <div class="columnLeft">
+                    <label for="name">Food Name</label>
+                </div>
+                <div class="columnRight">
+                    <input type="text" id="name" placeholder="Enter the name of the food here">
+                </div>
+            </div>
+            <div class="row">
+                <div class="columnLeft">
+                    <label for="category">Category</label>
+                </div>
+                <div class="columnRight">
+                    <select name="Category" id="category">
+                        <option value="" selected id="invisibleOption">Please Select A Category</option>
+                        <option value="starter">Starter</option>
+                        <option value="mainCourse">Main Course</option>
+                        <option value="sideDish">Side Dish</option>
+                        <option value="appetizer">Appetizer</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="beverage">Beverage</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="columnLeft">
+                    <label for="price">Price</label>
+                </div>
+                <div class="columnRight">
+                    <input type="text" id="price" placeholder="Enter the price here">
+                </div>
+            </div>
+            <div class="row">
+                <div class="columnLeft">
+                    <label for="description">Food Description</label>
+                </div>
+                <div class="columnRight">
+                    <textarea name="description" id="description" cols="30" rows="10"
+                        placeholder="Enter the description of the food here"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="columnLeft">
+                    <label for="file">Upload Image</label>
+                </div>
+                <div class="columnRight">
+                    <input type="file" id="file">
+                    <label for="file" id="imageLabel">Select Image</label>
+                    <img id="preview" alt="Preview Image">
+                </div>
+            </div>
+            <div class="row" id="buttons">
+                <button type="reset" id="reset">Reset</button>
+                <button type="submit" id="submit">Save</button>
+            </div>
+        </form>
+    </div>
+    <script src="waihpone_script.js"></script>
+</body>
+
+</html>

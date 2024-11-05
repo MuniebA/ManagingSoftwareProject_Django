@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    <title> Online Food Catering System </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="DarrenLau" />
+    <meta name="description" content="Food Cart" />
+    <meta name="keywords" content="Cart" />
+    <link rel="stylesheet" type="text/css" href="{% static 'style/darren_style3.css' %}" />
+</head>
+
+<body>
+    <div class="background">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">FoodEdge</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+                    <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+                    <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+                    <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+                    <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="cart-header">
+            {% if renderedFrom == "foodcart"%}
+            <h1>Your Cart</h1>
+            {% elif renderedFrom == "make_booking"%}
+            <h1> Your Catering Set </h1>
+            {% endif %}
+        </div>
+        <div class="description-cart">
+            <div>Item</div>
+            <div id="description-quantity">Quantity</div>
+            <div>Price(RM)</div>
+        </div>
+
+        <ul>
+            {% for item in cart_items %}
+            <li class="cart-item">
+                <div class="cart-item-details">
+                    <img src="{{ item.food_item.fooditemImage.url }}" alt="item" class="cart-item-image1" />
+                    <div class="cart-item-name">{{ item.food_item.name }}</div>
+                </div>
+                {% if editable %}
+                <div class="cart-item-quantity">
+                    <form action="{% url 'foodcateringapp:increase-cart-item' item.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="quantity-btn increase-quantity" type="submit">&#43;</button>
+                    </form>
+                    &nbsp;
+                    &nbsp;
+                    <span class="item-quantity">{{ item.quantity }}</span>
+                    &nbsp;
+                    &nbsp;
+                    <form action="{% url 'foodcateringapp:decrease-cart-item' item.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="quantity-btn decrease-quantity" type="submit">-</button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="cart-item-quantity">
+                    <span class="item-quantity">{{ item.quantity }}</span>
+                </div>
+                {% endif %}
+                <div class="cart-item-price" data-price="{{ item.food_item.price }}">
+                    {{ item.food_item.price|floatformat:2 }}
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+        <a class="continue-shopping-link" href="{% url 'foodcateringapp:foodmenu' %}">Continue Shopping</a>
+        <span id="total_price"> Total: RM {{total_price|floatformat:2}}</span>
+        <a class="checkout-button" href="{% url 'foodcateringapp:checkout' %}?from=book">Checkout</a>
+    </div>
+
+
+</body>
+
+</html>

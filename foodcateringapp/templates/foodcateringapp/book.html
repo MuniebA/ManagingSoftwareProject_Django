@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include jQuery UI library -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{% static 'style/book_style.css' %}">
+</head>
+<body>
+  <div class="navbar">
+    <div class="icon">
+      <h2 class="logo">FoodEdge</h2>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+        <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+        <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+        <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+        <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+    <h1>Your booking details</h1>
+    <div id="bookingModal" class="modal">
+      <div class="modal-content">
+        
+        <div id="modalContent">
+          <!-- Content will be dynamically added here -->
+        </div>
+      </div>
+    </div>
+
+    <form method="post" action="{% url 'foodcateringapp:book' 0 %}" id="bookingForm">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="button" onclick="openModal()">Make Booking</button>
+  </form>
+
+  <footer>
+    <div class="footer1">
+      <div class="FoodEdge">
+        <h3>Food Edge</h3>
+        <ul>
+          <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+          <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+          <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+          <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+          <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+        </ul>
+      </div>
+      <div class="flocation">
+        <h3>Location</h3>
+        <ul>
+          <li>Jalan Simpang Tiga,</li>
+          <li>93350 Kuching, Sarawak</li>
+        </ul>
+      </div>
+      <div class="fcontact">
+        <h3>Contact</h3>
+        <ul>
+          <li>Phone: 012-345 6789</li>
+          <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    function openModal() {
+      const selectElement = document.getElementById('id_catering_set');
+      const selectedText = selectElement.options[selectElement.selectedIndex].text;
+      // Get form data
+      var formData = {
+        // name: document.getElementById('id_name').value,
+        selected_set: selectedText,
+        description: document.getElementById('id_additional_info').value,
+        date: document.getElementById('id_date').value,
+        time: document.getElementById('id_time').value,
+
+        // Add more fields as needed
+      };
+
+      
+
+      //set style to modal
+      document.getElementById("bookingModal").classList.add("modal-style")
+  
+      // Create HTML content for the modal
+      // var modalContent = '<p>Name: ' + formData.name + '</p>';
+      var modalContent = "<span class=\"close\" onclick=\"closeModal()\">&times;</span>"
+      modalContent += "<h3>Review your booking details</h3>"
+      modalContent += `<p>Selected Set: ${formData.selected_set}</p>`;
+      modalContent += `<p>Selected Date: ${formData.date}</p>`;
+      modalContent += `<p>Selected Time: ${formData.time}</p>`;
+      modalContent += '<p>Special Requests: ' + formData.description + '</p>';
+      modalContent += `<p class="warning-note">*Please note that once you confirm, you cannot make changes.*</p>`
+      modalContent += '<button type="button" id="edit-button" onclick="closeModal()">Edit Booking</button>';
+      modalContent += '<button type="button" id="confirm-button">Confirm Booking</button>';
+      // Add more fields as needed
+  
+      // Display content in the modal
+      document.getElementById('modalContent').innerHTML = modalContent;
+  
+      // Show the modal
+      document.getElementById('bookingModal').style.display = 'block';
+
+      const confirmBtn = document.getElementById("confirm-button");
+      confirmBtn.onclick = function() {
+      // Submit the form
+      document.getElementById("bookingForm").submit();
+    };
+    }
+  
+    function closeModal() {
+      // Close the modal
+      document.getElementById('bookingModal').style.display = 'none';
+    }
+  
+    document.getElementById("bookingModal").classList.remove("modal-style")
+    // Close the modal if the user clicks outside of it
+    window.onclick = function (event) {
+      var modal = document.getElementById('bookingModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    };
+
+    $(function() {
+        $("#id_date").datepicker({
+          dateFormat: "yy-mm-dd" // Adjust date format as needed
+          // Add more options as needed
+        });
+      });
+    
+  </script>
+</body>
+</html>

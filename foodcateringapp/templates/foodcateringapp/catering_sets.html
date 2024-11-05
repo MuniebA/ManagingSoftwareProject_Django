@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'style/cateringsets_style.css' %}">
+  <title>Catering Sets</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="icon">
+      <h2 class="logo">FoodEdge</h2>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="{% url 'foodcateringapp:mainindex' %}">Home</a></li>
+        <li><a href="{% url 'foodcateringapp:trackorderindex' %}">Orders</a></li>
+        <li><a href="{% url 'foodcateringapp:foodmenu' %}">Menu</a></li>
+        <li><a href="{% url 'foodcateringapp:cateringsets' %}">Booking</a></li>
+        <li><a href="{% url 'foodcateringapp:profile' %}">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h1>Our catering sets</h1>
+    {% for set in catering_sets %}
+    <div class="grid-item" id="lighttheme">
+      <img class="image" src="{{ set.image.url }}" alt="{{ catering_set.name }}" width="500px" height="300px">
+      <div class="info">
+        <div class="set-info-details">
+          <div class="info-1">
+            <p>Name: {{set.name}}</p>
+            <p>Description: {{set.description}}</p>
+            <p>Set Price: {{set.total_price}}</p>
+          </div>
+          <div class="info-2">
+            <p>This set contains</p>
+            <ul>
+              {% for item in set.set_items.all %}
+                  <p>{{ item.food_item.name }} (Quantity: {{ item.quantity }})</p>
+                  <!-- Display other item details as needed -->
+              {% endfor %}
+          
+            </ul>
+          </div>
+        </div>    
+      </div>
+      <div class="invisible">
+        <p>box3</p>
+      </div>
+      <div class="button">
+        <p><a href="{% url 'foodcateringapp:book' set.id %}" id="buttondarktheme">Book</a></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <footer>
+    <div class="footer1">
+      <div class="FoodEdge">
+        <h3>Food Edge</h3>
+        <ul>
+          <li><a href="{% url 'foodcateringapp:mainindex' %}" id="linkdarktheme">Home</a></li>
+          <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Menu</a></li>
+          <li><a href="{% url 'foodcateringapp:foodmenu' %}" id="linkdarktheme">Orders</a></li>
+          <li><a href="{% url 'foodcateringapp:booking' %}" id="linkdarktheme">Booking</a></li>
+          <li><a href="{% url 'foodcateringapp:profile' %}" id="linkdarktheme">Profile</a></li>
+        </ul>
+      </div>
+      <div class="flocation">
+        <h3>Location</h3>
+        <ul>
+          <li>Jalan Simpang Tiga,</li>
+          <li>93350 Kuching, Sarawak</li>
+        </ul>
+      </div>
+      <div class="fcontact">
+        <h3>Contact</h3>
+        <ul>
+          <li>Phone: 012-345 6789</li>
+          <li>Email: <a href="mailto:102768533@students.swinburne.edu.my" id="linkdarktheme">FoodEdge</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
