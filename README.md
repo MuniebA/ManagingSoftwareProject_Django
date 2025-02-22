@@ -1,47 +1,150 @@
-# ManagingSoftwareProject_Group1
+# FoodEdge Gourmet Catering Management System
 
-!!! IMPORTANT !!!
-We move our project to the branch named MinKhant because we decided to start fresh in the middle of sprint 1 because main is too hard to manage and messy
+## Project Overview
 
-Please navigate to that branch to perform the step below or download the code from that branch
+FoodEdge Gourmet Catering is a comprehensive web-based management system designed to streamline food catering operations, providing robust features for clients, operations staff, and management.
 
-This project uses Django framework which requires preinstallation on different python library. Below are the dependacies that need to be install beforehand.
-1. You need to clone this repository first inside your PC / download and extract to a place
-2. You need to create a virtual environment first before running the project, ensure you have python install on your PC
-   2.1 Navigate to the place where you save the repository in Command Prompt
-   ![image](https://github.com/thadted/ManagingSoftwareProject_Group1/assets/136876851/fd3fd043-c72f-4b55-ad98-9798b39cf079)
-   In my case is in this directory
-   2.2 Create the virtual environment
-   ![image](https://github.com/thadted/ManagingSoftwareProject_Group1/assets/136876851/b8807794-7863-4841-87fa-018e6f6db97f)
-   2.3 Activate the environment
-   ![image](https://github.com/thadted/ManagingSoftwareProject_Group1/assets/136876851/d0d7a373-4ca5-463b-ab55-c3322f9c4970)
-   After pressing enter it should looks like this:
-   ![image](https://github.com/thadted/ManagingSoftwareProject_Group1/assets/136876851/fbcf5f82-d580-409e-a31b-e9cb3ee2907b)
-   2.4 Install Django and the python library, below are the command:
-   pip install django
-   pip install plotly
-   python -m pip install Pillow
-    
-3. After all the setting up, you can try running the project, first you need to apply the migrations to initialize the database:
-   python manage.py makemigrations (this will create the migration file)
-   python manage.py migrate (this will apply the migrations)
+## Key Features
 
-  Troubleshoot:
-  If Migrations failed:
-  1. Delete db.sqlite3 file in the folder if it exist and try repeat step 3 again
-  2. Delete all python file in foodcateringapp>migrations  and users>migrations
+### Client Interface
+- Menu browsing and ordering
+- Account management
+- Membership features
+- Order tracking
+- Event booking capabilities
 
-4. After the migration you can run the project by using the following command:
+### Operations Interface
+- Order management
+- Booking processing
+- Payment handling
+- Customer support tools
+
+### Management Interface
+- Business analytics
+- Income tracking
+- Food sales data management
+- Menu configuration
+
+## Technology Stack
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap (Responsive Design)
+
+### Backend
+- Django (Python Web Framework)
+- Django ORM
+- MySQL Database
+
+### Development Tools
+- XAMPP (Local Server Environment)
+- GitHub (Version Control)
+- Trello (Project Management)
+- actiTIME (Time Tracking)
+
+## Project Structure
+
+```
+FoodEdge-Catering/
+│
+├── foodcateringapp/             # Main application directory
+│   ├── migrations/               # Database migration files
+│   ├── templates/                # HTML templates
+│   ├── models.py                 # Database models
+│   ├── views.py                  # Business logic
+│   └── urls.py                   # URL routing
+│
+├── static/                       # Static files (CSS, JS, Images)
+│   ├── styles/
+│   └── scripts/
+│
+├── templates/                    # Global templates
+│   └── admin/                    # Admin interface templates
+│
+├── users/                        # User management app
+│   ├── models.py
+│   └── views.py
+│
+├── manage.py                     # Django project management script
+└── requirements.txt              # Project dependencies
+```
+
+## Setup and Installation
+
+### Prerequisites
+- Python 3.8+
+- Django 3.2+
+- MySQL
+- pip (Python Package Manager)
+
+### Installation Steps
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/FoodEdge-Catering.git
+   cd FoodEdge-Catering
+   ```
+
+2. Create a virtual environment
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Database Setup
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. Create Superuser
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. Run Development Server
+   ```bash
    python manage.py runserver
+   ```
 
-   ![image](https://github.com/thadted/ManagingSoftwareProject_Group1/assets/136876851/1207cef8-970b-4acb-8c0e-b8a6bd0a4e57)
-   This means the project is successful running
+## Testing
 
-5. Go to the link that are stated there in the browser
+- Selenium WebDriver used for comprehensive testing
+- 100% test coverage across:
+  - Menu functionality
+  - Order processing
+  - User authentication
+  - Payment integration
 
-6. Create default admin account, use the code provided below
-   py manage.py createsuperuser
+## Deployment
 
-   Follow the steps and the admin account will be created
-   
-  
+Recommended deployment platforms:
+- Heroku
+- PythonAnywhere
+- DigitalOcean
+
+## Team Members
+
+- Munieb Awad Elsheikhidris Abdelrahman
+- Thaddeus Chong Zhuo Liang 
+- Darren Lau Lit Zhang 
+- Po Horng En 
+- Munieb Awad Elsheikhidris Abdelrahman
+- Wai Hpone 
+- Min Thaw Khant 
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- SWE30009 Software Testing and Reliability course
+- Django Documentation
+- Bootstrap Framework
